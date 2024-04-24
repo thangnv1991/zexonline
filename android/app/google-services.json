@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "798819860794",
+    "project_id": "zexmanga",
+    "storage_bucket": "zexmanga.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798819860794:android:76791f7904ae8e36a19003",
+        "android_client_info": {
+          "package_name": "com.ttc.zexonline.zexonline"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYpwjAofWOhikidn6_Zx1oScjDazX47s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:798819860794:android:b9b088db41732460a19003",
+        "android_client_info": {
+          "package_name": "com.ttc.zexonline.zexonline.dev"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASYpwjAofWOhikidn6_Zx1oScjDazX47s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
