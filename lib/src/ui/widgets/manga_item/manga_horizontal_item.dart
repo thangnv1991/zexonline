@@ -7,6 +7,7 @@ import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
 import 'package:zexonline/src/utils/app_assets.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_constants.dart';
 
 class MangaHorizontalItem extends StatelessWidget {
   final StoryModel story;
@@ -37,7 +38,7 @@ class MangaHorizontalItem extends StatelessWidget {
           child: Stack(
             children: [
               ImageWidget(
-                image: story.banner,
+                image: AppConstants.domainImage(story.banner),
                 fit: BoxFit.fitWidth,
                 width: width,
               ),

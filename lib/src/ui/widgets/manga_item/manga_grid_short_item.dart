@@ -6,6 +6,7 @@ import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
 import 'package:zexonline/src/ui/widgets/manga_item/rating_widget.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_constants.dart';
 
 class MangaGridShortItem extends StatelessWidget {
   final StoryModel story;
@@ -39,7 +40,7 @@ class MangaGridShortItem extends StatelessWidget {
                   ),
                   width: 140,
                   child: ImageWidget(
-                    image: story.banner,
+                    image: AppConstants.domainImage(story.banner),
                     fit: BoxFit.cover,
                     width: 140,
                     height: height,

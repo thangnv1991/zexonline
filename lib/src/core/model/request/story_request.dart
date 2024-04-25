@@ -5,6 +5,7 @@ class StoryRequest {
   String? search;
   int page;
   int limit;
+  bool isAdult;
 
   StoryRequest({
     this.sort,
@@ -13,6 +14,7 @@ class StoryRequest {
     this.search,
     this.page = 1,
     this.limit = 10,
+    this.isAdult = false,
   });
 
   factory StoryRequest.fromJson(Map<String, dynamic> json) {
@@ -23,6 +25,7 @@ class StoryRequest {
       search: json['search'] ?? "",
       page: json['page'] ?? 1,
       limit: json['limit'] ?? 10,
+        isAdult: json['is_adult'] ?? false,
     );
   }
 
@@ -34,6 +37,7 @@ class StoryRequest {
       'search': search,
       'page': page,
       'limit': limit,
+      'is_adult': isAdult,
     };
   }
 }

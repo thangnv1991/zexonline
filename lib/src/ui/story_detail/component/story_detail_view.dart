@@ -19,6 +19,7 @@ import 'package:zexonline/src/ui/widgets/common/custom_circular_progress.dart';
 import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
 import 'package:zexonline/src/utils/app_assets.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_constants.dart';
 
 class StoryDetailView extends StatefulWidget {
   const StoryDetailView({super.key});
@@ -65,7 +66,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
                                 child: Stack(
                                   children: [
                                     ImageWidget(
-                                      image: story.banner ?? '',
+                                      image: AppConstants.domainImage(story.banner),
                                       fit: BoxFit.fitHeight,
                                       width: Get.width,
                                       height: Get.height / 3,
@@ -94,7 +95,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
                                       child: ClipRRect(
                                         borderRadius: 4.borderRadiusAll,
                                         child: ImageWidget(
-                                          image: story.banner ?? '',
+                                          image: AppConstants.domainImage(story.banner),
                                           fit: BoxFit.fitHeight,
                                           height: 140,
                                         ),
