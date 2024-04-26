@@ -48,7 +48,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             )
           : const SizedBox(),
       titleSpacing: 0,
-      centerTitle: true,
+      centerTitle: false,
       leadingWidth: implyLeading ? 41 : 24,
       title: titleWidget ??
           Text(title,

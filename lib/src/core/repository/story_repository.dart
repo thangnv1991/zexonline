@@ -27,6 +27,8 @@ class StoryRepository extends Api {
   }
 
   Future<StoriesResponse> getHistoriesGuest(List<String> ids) async {
+    if(ids.isEmpty) return StoriesResponse.fromJson({});
+
     final url = APIUrl.getHistoriesGuest;
 
     String params = '';
@@ -36,6 +38,7 @@ class StoryRepository extends Api {
         params += ",";
       }
     }
+
 
     final response = await request(url, Method.get, params: {'ids': params});
 

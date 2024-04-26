@@ -10,6 +10,8 @@ import 'package:zexonline/src/ui/library/binding/library_binding.dart';
 import 'package:zexonline/src/ui/library/library_page.dart';
 import 'package:zexonline/src/ui/main/components/app_bottom_navigationbar.dart';
 import 'package:zexonline/src/ui/main/interactor/main_bloc.dart';
+import 'package:zexonline/src/ui/manga/binding/manga_binding.dart';
+import 'package:zexonline/src/ui/manga/manga_page.dart';
 import 'package:zexonline/src/ui/novel/binding/novel_binding.dart';
 import 'package:zexonline/src/ui/novel/novel_page.dart';
 import 'package:zexonline/src/ui/options/binding/options_binding.dart';
@@ -57,9 +59,9 @@ class MainPage extends StatelessWidget {
       case BottomNavigationPage.Novel:
         NovelBinding().dependencies();
         return pages.putIfAbsent(currentPage, () => const NovelPage());
-      case BottomNavigationPage.Discover:
-        DiscoverBinding().dependencies();
-        return pages.putIfAbsent(currentPage, () => const DiscoverPage());
+      case BottomNavigationPage.Manga:
+        MangaBinding().dependencies();
+        return pages.putIfAbsent(currentPage, () => const MangaPage());
       case BottomNavigationPage.Library:
         LibraryBinding().dependencies();
         return pages.putIfAbsent(currentPage, () => const LibraryPage());

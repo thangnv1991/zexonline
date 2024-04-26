@@ -16,6 +16,8 @@ import 'package:zexonline/src/utils/app_constants.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
 import 'package:share_plus/share_plus.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:zexonline/src/utils/app_shared.dart';
+import 'package:zexonline/src/utils/app_utils.dart';
 
 part 'options_event.dart';
 part 'options_state.dart';
@@ -56,9 +58,9 @@ class OptionsBloc extends Bloc<OptionsEvent, OptionsState> {
             pageCommand: PageCommandNavigatorPage(page: AppPages.webView(WebViewType.AboutUs))));
         return;
 
-      case OptionAction.ClearCaches:
-        _clearImageCache();
-        return;
+      // case OptionAction.ClearCaches:
+      //   _clearImageCache();
+      //   return;
 
       case OptionAction.Notification:
         _getNotice();
@@ -108,6 +110,8 @@ class OptionsBloc extends Bloc<OptionsEvent, OptionsState> {
 
   FutureOr<void> _fetchSetting(FetchSetting event, Emitter<OptionsState> emit) async {
     try {
+      if(!AppUtils.isLogin()) return;
+
       final response = await _authRepository.getSettings();
 
       emit(state.copyWith(enableNotification: response.data?.notification ?? false));

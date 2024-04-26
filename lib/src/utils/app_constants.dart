@@ -14,10 +14,6 @@ class AppConstants {
   // 150x150: width x height => we can change it.
   static const String demoImageUrl = "http://via.placeholder.com/150x150";
 
-  // Key header of Retrofit
-  static const String keyAccept = "Accept";
-  static const String keyAuth = "Authorization";
-
   static const String patternEmail =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
 
@@ -43,7 +39,7 @@ class AppConstants {
 
   static const String appStoreId = '';
   static const String microsoftStoreId = '';
-  static const String facebookUrl = 'https://www.facebook.com/';
+  static const String facebookUrl = 'https://www.facebook.com/people/ZexManga/61558615781299/';
 
   static String domainImage(String key) =>
       'https://pub-9b66aa2beaa54e95996483b056ca9bd8.r2.dev/$key';

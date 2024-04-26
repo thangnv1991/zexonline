@@ -9,7 +9,7 @@ enum OptionAction {
   // ShareApp,
   JoinFacebook,
   TermOfPrivacy,
-  ClearCaches,
+  // ClearCaches,
   Logout;
 
   String get name {
@@ -26,8 +26,8 @@ enum OptionAction {
         return LocaleKey.joinFacebook.tr;
       case OptionAction.TermOfPrivacy:
         return LocaleKey.termOfPrivacy.tr;
-      case OptionAction.ClearCaches:
-        return LocaleKey.clearCaches.tr;
+      // case OptionAction.ClearCaches:
+      //   return LocaleKey.clearCaches.tr;
       case OptionAction.Logout:
         return LocaleKey.logout.tr;
     }
@@ -47,8 +47,8 @@ enum OptionAction {
         return AppAssets.ic_facebook_svg;
       case OptionAction.TermOfPrivacy:
         return AppAssets.ic_note_svg;
-      case OptionAction.ClearCaches:
-        return AppAssets.ic_trash_svg;
+      // case OptionAction.ClearCaches:
+      //   return AppAssets.ic_trash_svg;
       case OptionAction.Logout:
         return AppAssets.ic_trash_svg;
     }

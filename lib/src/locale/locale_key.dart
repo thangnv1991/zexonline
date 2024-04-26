@@ -66,6 +66,7 @@ class LocaleKey {
 
   // Novel
   static const String novel = 'novel';
+  static const String manga = 'manga';
 
   // Manga detail
   static const String chapters = 'chapters';

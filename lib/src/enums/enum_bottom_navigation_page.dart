@@ -2,8 +2,8 @@ import 'package:zexonline/src/utils/app_assets.dart';
 
 enum BottomNavigationPage {
   Home,
+  Manga,
   Novel,
-  Discover,
   Library,
   Options;
 
@@ -13,8 +13,8 @@ enum BottomNavigationPage {
         return "Trang chủ";
       case BottomNavigationPage.Novel:
         return "Tiểu thuyết";
-      case BottomNavigationPage.Discover:
-        return "Khám phá";
+      case BottomNavigationPage.Manga:
+        return "Truyện tranh";
       case BottomNavigationPage.Library:
         return "Thư viện";
       case BottomNavigationPage.Options:
@@ -28,7 +28,7 @@ enum BottomNavigationPage {
         return AppAssets.ic_home_svg;
       case BottomNavigationPage.Novel:
         return AppAssets.ic_novel_svg;
-      case BottomNavigationPage.Discover:
+      case BottomNavigationPage.Manga:
         return AppAssets.ic_discover_svg;
       case BottomNavigationPage.Library:
         return AppAssets.ic_library_svg;

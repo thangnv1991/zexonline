@@ -28,8 +28,8 @@ class AppBottomNavigationBar extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 BottomNavigationItem(BottomNavigationPage.Home),
+                BottomNavigationItem(BottomNavigationPage.Manga),
                 BottomNavigationItem(BottomNavigationPage.Novel),
-                BottomNavigationItem(BottomNavigationPage.Discover),
                 BottomNavigationItem(BottomNavigationPage.Library),
                 BottomNavigationItem(BottomNavigationPage.Options),
               ],

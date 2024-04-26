@@ -23,7 +23,7 @@ class DiscoverView extends StatelessWidget {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         appBar: CustomAppBar(
-          implyLeading: false,
+          implyLeading: true,
           title: LocaleKey.discover.tr,
           backgroundColor: Colors.transparent,
         ),

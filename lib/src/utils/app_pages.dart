@@ -5,6 +5,8 @@ import 'package:zexonline/src/ui/app_webview/binding/app_webview_binding.dart';
 import 'package:zexonline/src/ui/auth/binding/auth_binding.dart';
 import 'package:zexonline/src/ui/auth/signin/signin_page.dart';
 import 'package:zexonline/src/ui/auth/signup/signup_page.dart';
+import 'package:zexonline/src/ui/discover/binding/discover_binding.dart';
+import 'package:zexonline/src/ui/discover/discover_page.dart';
 import 'package:zexonline/src/ui/main/binding/main_binding.dart';
 import 'package:zexonline/src/ui/main/main_page.dart';
 import 'package:zexonline/src/ui/manga_chapter_detail/binding/manga_chapter_detail_binding.dart';
@@ -30,6 +32,8 @@ class AppPages {
   static const String mangaChapterDetailRoot = '/manga-detail';
   static const String novelChapterDetailRoot = '/novel-detail';
   static const String webViewRoot = '/web-view';
+
+  static const String discover = '/discover';
 
   static String storyDetail(String id) => '$storyDetailRoot/$id';
 
@@ -85,12 +89,11 @@ class AppPages {
       page: () => const AppWebViewPage(),
       binding: AppWebViewBinding(),
     ),
-    // Using swipe to back
-    // GetPage(
-    //   name: detail,
-    //   page: () => const DetailPage(),
-    //   transition: Transition.cupertino,
-    // ),
+    GetPage(
+      name: _Paths.discover,
+      page: () => const DiscoverPage(),
+      binding: DiscoverBinding(),
+    ),
   ];
 }
 
@@ -100,6 +103,7 @@ abstract class _Paths {
   static const String payment = "/payment";
   static const String signIn = "/sign_in";
   static const String signUp = "/sign_up";
+  static const String discover = '/discover';
   static const String storyDetail = "${AppPages.storyDetailRoot}/:id";
   static const String mangaChapterDetail = "${AppPages.mangaChapterDetailRoot}/:id";
   static const String novelChapterDetail = "${AppPages.novelChapterDetailRoot}/:id";

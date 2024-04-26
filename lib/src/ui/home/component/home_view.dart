@@ -50,7 +50,7 @@ class HomeView extends StatelessWidget {
                           child: TextButton(
                             onPressed: () {
                               Get.find<MainBloc>()
-                                  .add(const OnChangeTabEvent(BottomNavigationPage.Discover));
+                                  .add(const OnChangeTabEvent(BottomNavigationPage.Manga));
                             },
                             child: Text(
                               LocaleKey.noDataReadNow.tr,
