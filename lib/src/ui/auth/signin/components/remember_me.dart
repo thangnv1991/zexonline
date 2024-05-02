@@ -16,15 +16,15 @@ class RememberMe extends StatelessWidget {
       children: [
         Checkbox(
           splashRadius: 2,
-          side: const BorderSide(color: AppColors.white),
-          activeColor: AppColors.white,
+          side: const BorderSide(color: AppColors.black),
+          activeColor: AppColors.black,
           value: isRememberMe,
           onChanged: (bool? value) {
             Get.find<AuthBloc>().add(OnCheckedRemember(isRemember: isRememberMe));
           },
         ),
         Text(LocaleKey.keyRememberMe.tr,
-            style: GoogleFonts.cabin(fontSize: 14, color: AppColors.white)),
+            style: GoogleFonts.cabin(fontSize: 14, color: AppColors.black)),
       ],
     );
   }

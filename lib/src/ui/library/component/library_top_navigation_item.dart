@@ -30,8 +30,8 @@ class LibraryTopNavigationItem extends StatelessWidget {
             child: RippleButton(
               onTap: () => Get.find<LibraryBloc>().add(OnChangeLibraryTab(tab)),
               title: tab.tabName,
-              colorTitle: isActive ? AppColors.white : AppColors.secondary2,
-              backgroundColor: isActive ? AppColors.secondary2 : AppColors.white,
+              colorTitle: isActive ? AppColors.black : AppColors.secondary2,
+              backgroundColor: isActive ? AppColors.secondary2 : AppColors.black,
               padding: 0.paddingAll,
             ),
           ),

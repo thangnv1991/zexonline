@@ -20,16 +20,13 @@ class AppColorTheme extends ThemeExtension<AppColorTheme> {
   String toString() => 'CustomColors';
 
   // the light theme
-  static const light = AppColorTheme(
-      buttonTextColor: AppColors.black, textColor: AppColors.black);
+  static const light = AppColorTheme(buttonTextColor: AppColors.black, textColor: AppColors.black);
 
   // the dark theme
-  static const dark = AppColorTheme(
-      buttonTextColor: AppColors.white, textColor: AppColors.white);
+  static const dark = AppColorTheme(buttonTextColor: AppColors.black, textColor: AppColors.black);
 
   @override
-  ThemeExtension<AppColorTheme> lerp(
-      ThemeExtension<AppColorTheme>? other, double t) {
+  ThemeExtension<AppColorTheme> lerp(ThemeExtension<AppColorTheme>? other, double t) {
     if (other is! AppColorTheme) {
       return this;
     }

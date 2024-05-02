@@ -22,7 +22,7 @@ class HeaderListChapterWidget extends StatelessWidget {
           LocaleKey.chapters.tr,
           style: GoogleFonts.cabin(
             fontSize: 16,
-            color: AppColors.white,
+            color: AppColors.black,
             fontWeight: FontWeight.w400,
           ),
         ),
@@ -44,7 +44,7 @@ class HeaderListChapterWidget extends StatelessWidget {
         //           LocaleKey.sort.tr.toUpperCase(),
         //           style: GoogleFonts.cabin(
         //             fontSize: 12,
-        //             color: AppColors.white,
+        //             color: AppColors.black,
         //             fontWeight: FontWeight.w600,
         //           ),
         //         ),
@@ -72,7 +72,7 @@ class HeaderListChapterWidget extends StatelessWidget {
                         : LocaleKey.list.tr.toUpperCase(),
                     style: GoogleFonts.cabin(
                       fontSize: 12,
-                      color: AppColors.white,
+                      color: AppColors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),

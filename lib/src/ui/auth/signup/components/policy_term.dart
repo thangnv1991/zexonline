@@ -27,7 +27,7 @@ class PolicyTerm extends StatelessWidget {
               style: GoogleFonts.cabin(
                 fontSize: 13,
                 decoration: TextDecoration.underline,
-                decorationColor: AppColors.white,
+                decorationColor: AppColors.black,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
@@ -44,7 +44,7 @@ class PolicyTerm extends StatelessWidget {
               style: GoogleFonts.cabin(
                 fontSize: 13,
                 decoration: TextDecoration.underline,
-                decorationColor: AppColors.white,
+                decorationColor: AppColors.black,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {

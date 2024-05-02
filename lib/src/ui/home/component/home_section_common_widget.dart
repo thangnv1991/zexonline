@@ -8,8 +8,9 @@ import 'package:zexonline/src/utils/app_colors.dart';
 class HomeSectionCommonWidget extends StatelessWidget {
   final String title;
   final Widget child;
+  final VoidCallback? onTapSeeMore;
 
-  const HomeSectionCommonWidget(this.title, {required this.child, super.key});
+  const HomeSectionCommonWidget(this.title, {required this.child, this.onTapSeeMore, super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,11 +27,17 @@ class HomeSectionCommonWidget extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.cabin(fontSize: 16, color: AppColors.white),
+                    style: GoogleFonts.cabin(fontSize: 16, color: AppColors.black),
                   ),
-                  Text(
-                    LocaleKey.seeMore.tr,
-                    style: GoogleFonts.cabin(fontSize: 16, color: AppColors.white),
+                  TextButton(
+                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                    onPressed: () {
+                      onTapSeeMore?.call();
+                    },
+                    child: Text(
+                      LocaleKey.seeMore.tr,
+                      style: GoogleFonts.cabin(fontSize: 16, color: AppColors.red),
+                    ),
                   ),
                 ],
               ),

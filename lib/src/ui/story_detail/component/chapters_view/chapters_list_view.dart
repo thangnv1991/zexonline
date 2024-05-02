@@ -72,7 +72,7 @@ class ChaptersListView extends StatelessWidget {
                         .trParams({'time': AppUtils.formatUtcTime(dateUtc: chapter.updatedAt)}),
                     style: GoogleFonts.cabin(
                       fontSize: 10,
-                      color: AppColors.white,
+                      color: AppColors.black,
                       fontWeight: FontWeight.w400,
                     ),
                   ),
@@ -91,7 +91,7 @@ class ChaptersListView extends StatelessWidget {
       separatorBuilder: (context, index) => Container(
         height: .8,
         width: Get.width,
-        color: AppColors.white,
+        color: AppColors.black,
         margin: 12.paddingVertical,
       ),
     );

@@ -9,6 +9,7 @@ import 'package:zexonline/src/utils/app_colors.dart';
 
 class CategoryBottomSheet extends StatelessWidget {
   final Function(Genre genre) onSelectedGenre;
+
   const CategoryBottomSheet({super.key, required this.onSelectedGenre});
 
   @override
@@ -18,7 +19,7 @@ class CategoryBottomSheet extends StatelessWidget {
       height: Get.height / 2,
       padding: 12.paddingHorizontal,
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.black,
         borderRadius: 8.borderRadiusTop,
       ),
       child: Column(
@@ -61,7 +62,7 @@ class CategoryBottomSheet extends StatelessWidget {
                         genre.name,
                         style: GoogleFonts.cabin(
                           fontSize: 10,
-                          color: AppColors.white,
+                          color: AppColors.black,
                           fontWeight: FontWeight.w400,
                         ),
                         textAlign: TextAlign.center,

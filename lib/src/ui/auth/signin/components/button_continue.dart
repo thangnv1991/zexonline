@@ -24,7 +24,7 @@ class ButtonContinue extends StatelessWidget {
         child: Text(
           LocaleKey.keyContinue.tr.toUpperCase(),
           style: GoogleFonts.cabin(
-            color: AppColors.white,
+            color: AppColors.black,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),

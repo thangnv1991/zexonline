@@ -24,7 +24,7 @@ class ButtonCreate extends StatelessWidget {
         child: Text(
           LocaleKey.keyCreateAccount.tr.toUpperCase(),
           style: GoogleFonts.cabin(
-            color: AppColors.white,
+            color: AppColors.black,
             fontSize: 12,
             fontWeight: FontWeight.w600,
           ),

@@ -7,7 +7,7 @@ import 'package:zexonline/src/utils/app_colors.dart';
 class CustomCircularProgress extends StatelessWidget {
   final Color color;
 
-  const CustomCircularProgress({super.key, this.color = AppColors.white});
+  const CustomCircularProgress({super.key, this.color = AppColors.black});
 
   @override
   Widget build(BuildContext context) {

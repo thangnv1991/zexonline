@@ -10,13 +10,13 @@ import 'package:zexonline/src/enums/enum_sort_type.dart';
 import 'package:zexonline/src/ui/base/interactor/page_command.dart';
 import 'package:zexonline/src/ui/base/interactor/page_states.dart';
 
-part 'manga_event.dart';
-part 'manga_state.dart';
+part 'more_story_event.dart';
+part 'more_story_state.dart';
 
-class MangaBloc extends Bloc<MangaEvent, MangaState> {
+class MoreStoryBloc extends Bloc<MoreStoryEvent, MoreStoryState> {
   final StoryRepository _storyRepository = StoryRepository();
 
-  MangaBloc() : super(const MangaState(error: '', status: PageState.loading)) {
+  MoreStoryBloc() : super(const MoreStoryState(error: '', status: PageState.success)) {
     on<OnNavigatePage>((event, emit) => emit(state.copyWith(pageCommand: event.page)));
     on<OnClearPageCommand>((_, emit) => emit(state.copyWith(pageCommand: null)));
     on<GetListStories>(_getListStories);
@@ -24,6 +24,9 @@ class MangaBloc extends Bloc<MangaEvent, MangaState> {
 
   FutureOr _getListStories(GetListStories event, emit) async {
     try {
+      if (state.status == PageState.loading) return;
+      emit(state.copyWith(status: PageState.loading));
+
       final request = StoryRequest(
         type: 'comic',
         page: event.page,
@@ -33,17 +36,8 @@ class MangaBloc extends Bloc<MangaEvent, MangaState> {
 
       final StoriesResponse result = await _storyRepository.getStories(request);
 
-      if (event.sort case SortType.NewChapter) {
-        emit(state.copyWith(storiesNewChapter: result.data));
-      } else if (event.sort case SortType.LatestUpdate) {
-        emit(state.copyWith(storiesLatestUpdate: result.data));
-      } else if (event.sort case SortType.Popular) {
-        emit(state.copyWith(storiesPopular: result.data));
-      } else if (event.sort case SortType.Rate) {
-        emit(state.copyWith(storiesRate: result.data));
-      }
-
-      emit(state.copyWith(status: PageState.success));
+      emit(
+          state.copyWith(status: PageState.success, stories: result.data, currentPage: event.page));
     } catch (ex) {
       emit(state.copyWith(status: PageState.failure));
     }

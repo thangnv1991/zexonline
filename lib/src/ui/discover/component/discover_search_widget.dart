@@ -35,7 +35,7 @@ class DiscoverSearchWidget extends StatelessWidget {
             ),
             child: const Icon(
               Icons.search,
-              color: AppColors.white,
+              color: AppColors.black,
             )),
       ),
     );

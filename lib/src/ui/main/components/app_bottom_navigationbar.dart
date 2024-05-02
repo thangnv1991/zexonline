@@ -19,7 +19,7 @@ class AppBottomNavigationBar extends StatelessWidget {
           borderRadius: BorderRadius.vertical(
             top: Radius.circular(16),
           ),
-          color: AppColors.white,
+          color: AppColors.black,
         ),
         child: const Stack(
           children: [

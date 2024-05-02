@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
@@ -8,16 +9,16 @@ import 'package:zexonline/src/ui/widgets/manga_item/rating_widget.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
 
-class MangaGridShortItem extends StatelessWidget {
+class HorizontalItem extends StatelessWidget {
   final StoryModel story;
   final Function()? onNavigateToDetail;
   final double? height;
 
-  const MangaGridShortItem({
+  const HorizontalItem({
     super.key,
     required this.onNavigateToDetail,
     required this.story,
-    this.height,
+    this.height = 140,
   });
 
   @override
@@ -27,30 +28,26 @@ class MangaGridShortItem extends StatelessWidget {
       child: Padding(
         padding: 4.paddingVertical,
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              flex: 75,
-              child: ClipRRect(
-                borderRadius: 4.borderRadiusAll,
-                clipBehavior: Clip.hardEdge,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: 4.borderRadiusAll,
-                    gradient: AppColors.gradient(),
-                  ),
-                  width: 140,
-                  child: ImageWidget(
-                    image: AppConstants.domainImage(story.banner),
-                    fit: BoxFit.cover,
-                    width: 140,
-                    height: height,
-                  ),
+            ClipRRect(
+              borderRadius: 4.borderRadiusAll,
+              clipBehavior: Clip.hardEdge,
+              child: Container(
+                decoration: BoxDecoration(
+                  borderRadius: 4.borderRadiusAll,
+                  gradient: AppColors.gradient(),
+                ),
+                child: ImageWidget(
+                  image: AppConstants.domainImage(story.banner),
+                  fit: BoxFit.cover,
+                  height: height,
                 ),
               ),
             ),
             6.width,
-            Expanded(
-              flex: 100,
+            SizedBox(
+              width: 150,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -60,7 +57,7 @@ class MangaGridShortItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.cabin(
                       fontSize: 13,
-                      color: AppColors.black,
+                      color: AppColors.primary,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -75,10 +72,9 @@ class MangaGridShortItem extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                  const Spacer(),
                   2.height,
                   Text(
-                    '${story.totalViews} ${LocaleKey.views}',
+                    '${story.totalViews} ${LocaleKey.views.tr}',
                     style: GoogleFonts.cabin(
                       fontSize: 10,
                       color: AppColors.secondary4,

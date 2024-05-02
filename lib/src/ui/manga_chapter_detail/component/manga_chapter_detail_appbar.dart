@@ -50,7 +50,7 @@ class MangaChapterDetailAppBar extends StatelessWidget {
                       chapter?.title ?? "",
                       style: GoogleFonts.cabin(
                         fontSize: 16,
-                        color: AppColors.white,
+                        color: AppColors.black,
                         fontWeight: FontWeight.w400,
                       ),
                     ),
@@ -59,7 +59,7 @@ class MangaChapterDetailAppBar extends StatelessWidget {
                       '${chapter?.order ?? 1}/${chapter?.totalOrder ?? 1}',
                       style: GoogleFonts.cabin(
                         fontSize: 13,
-                        color: AppColors.white,
+                        color: AppColors.black,
                         fontWeight: FontWeight.w400,
                       ),
                     ),

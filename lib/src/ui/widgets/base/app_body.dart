@@ -53,7 +53,7 @@ class AppBody extends StatelessWidget {
                 LocaleKey.keySignUpDescription.tr,
                 style: GoogleFonts.cabin(
                   fontSize: 16,
-                  color: AppColors.white,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w400,
                 ),
                 textAlign: TextAlign.center,

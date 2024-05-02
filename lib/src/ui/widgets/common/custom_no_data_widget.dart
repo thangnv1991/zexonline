@@ -1,4 +1,3 @@
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -18,7 +17,7 @@ class CustomNoDataWidget extends StatelessWidget {
         LocaleKey.noData.tr.toUpperCase(),
         style: GoogleFonts.cabin(
           fontSize: 22,
-          color: AppColors.white,
+          color: AppColors.black,
           fontWeight: FontWeight.w800,
         ),
       ),

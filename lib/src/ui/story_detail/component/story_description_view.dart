@@ -24,7 +24,7 @@ class StoryDescriptionView extends StatelessWidget {
                 LocaleKey.description.tr,
                 style: GoogleFonts.cabin(
                   fontSize: 14,
-                  color: AppColors.white,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -36,7 +36,7 @@ class StoryDescriptionView extends StatelessWidget {
                 readLessText: 'Thu lại',
                 textStyle: GoogleFonts.cabin(
                   fontSize: 13,
-                  color: AppColors.white,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w400,
                 ),
                 buttonTextStyle: GoogleFonts.cabin(
@@ -51,7 +51,7 @@ class StoryDescriptionView extends StatelessWidget {
                 LocaleKey.genre.tr,
                 style: GoogleFonts.cabin(
                   fontSize: 14,
-                  color: AppColors.white,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -65,13 +65,13 @@ class StoryDescriptionView extends StatelessWidget {
                         padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
                         decoration: BoxDecoration(
                           borderRadius: 4.borderRadiusAll,
-                          border: Border.all(color: AppColors.white),
+                          border: Border.all(color: AppColors.black),
                         ),
                         child: Text(
                           genre.name,
                           style: GoogleFonts.cabin(
                             fontSize: 14,
-                            color: AppColors.white,
+                            color: AppColors.black,
                             fontWeight: FontWeight.w600,
                           ),
                         ),

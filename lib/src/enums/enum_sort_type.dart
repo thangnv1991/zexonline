@@ -11,6 +11,21 @@ enum SortType {
   Popular,
   NewChapter;
 
+  String get title {
+    switch (this) {
+      case SortType.LatestUpdate:
+        return "Mới nhất";
+      case SortType.Popular:
+        return "Phổ biến";
+      case SortType.Rate:
+        return "Đánh giá cao";
+      case SortType.NewChapter:
+        return "Bão cập nhật";
+      default:
+        return '';
+    }
+  }
+
   String get name {
     switch (this) {
       case SortType.LatestUpdate:

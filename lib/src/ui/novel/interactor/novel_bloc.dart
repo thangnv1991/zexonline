@@ -11,32 +11,16 @@ import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/core/repository/story_repository.dart';
 import 'package:zexonline/src/ui/base/interactor/page_command.dart';
 import 'package:zexonline/src/ui/base/interactor/page_states.dart';
-import 'package:zexonline/src/ui/main/interactor/main_bloc.dart';
-import 'package:zexonline/src/utils/app_demo_data.dart';
 
 part 'novel_event.dart';
 part 'novel_state.dart';
 
 class NovelBloc extends Bloc<NovelEvent, NovelState> {
-  NovelBloc()
-      : super(NovelState(error: '', status: PageState.loading, selectedType: novelTypes[0])) {
+  NovelBloc() : super(const NovelState(error: '', status: PageState.success, selectedTab: 0)) {
     on<OnChangeType>(_onChangeType);
     on<OnNavigatePage>((event, emit) => emit(state.copyWith(pageCommand: event.page)));
     on<OnClearPageCommand>((_, emit) => emit(state.copyWith(pageCommand: null)));
-    on<GetGenres>(_getGenres);
     on<GetNovelsByGenre>(_getNovelsByGenre);
-  }
-
-  FutureOr _getGenres(GetGenres event, emit) async {
-    final List<Genre> genres = Get.find<MainBloc>().state.genres;
-
-    emit(state.copyWith(genres: genres, selectedType: genres.firstOrNull?.id));
-    if (state.genres.isNotEmpty) {
-      add(GetNovelsByGenre(
-        state.genres[0].id,
-        page: 1,
-      ));
-    }
   }
 
   final StoryRepository _storyRepository = StoryRepository();
@@ -99,12 +83,9 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
 
   FutureOr _onChangeType(OnChangeType event, emit) async {
     emit(state.copyWith(
-      selectedType: event.type,
+      selectedTab: event.type,
       status: PageState.loading,
       isLoadMore: false,
     ));
-    if (state.genres.isNotEmpty) {
-      add(GetNovelsByGenre(event.type, page: 1));
-    }
   }
 }

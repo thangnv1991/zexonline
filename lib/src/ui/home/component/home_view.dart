@@ -2,17 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/enums/enum_bottom_navigation_page.dart';
+import 'package:zexonline/src/enums/enum_sort_type.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/base/base_page.dart';
-import 'package:zexonline/src/ui/home/component/home_appbar.dart';
 import 'package:zexonline/src/ui/home/component/manga_gridview_section.dart';
 import 'package:zexonline/src/ui/home/component/manga_listview_section.dart';
 import 'package:zexonline/src/ui/home/interactor/home_bloc.dart';
 import 'package:zexonline/src/ui/main/components/app_bottom_navigationbar.dart';
 import 'package:zexonline/src/ui/main/interactor/main_bloc.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_pages.dart';
 
 class HomeView extends StatelessWidget {
   const HomeView({super.key});
@@ -20,9 +22,10 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BasePage(
+      isBackground: false,
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: const HomeAppBar(),
+        backgroundColor: AppColors.greyF3,
+        // appBar: const HomeAppBar(),
         body: ListView(
           padding: 0.paddingAll,
           children: [
@@ -35,6 +38,8 @@ class HomeView extends StatelessWidget {
                   return MangaGridViewSection(
                     LocaleKey.latestUpdateHome.tr,
                     stories: state.latestUpdate,
+                    onTapSeeMore: () => Get.find<NavigatorManager>()
+                        .navigateToPage(AppPages.moreStory, args: SortType.LatestUpdate),
                   );
                 }),
             16.height,
@@ -56,7 +61,7 @@ class HomeView extends StatelessWidget {
                               LocaleKey.noDataReadNow.tr,
                               style: GoogleFonts.cabin(
                                 fontSize: 13,
-                                color: AppColors.white,
+                                color: AppColors.black,
                                 fontWeight: FontWeight.w600,
                               ),
                             ),

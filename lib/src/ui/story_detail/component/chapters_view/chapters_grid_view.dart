@@ -64,7 +64,7 @@ class ChaptersGridView extends StatelessWidget {
                 '${chapter.title}',
                 style: GoogleFonts.cabin(
                   fontSize: 10,
-                  color: AppColors.white,
+                  color: AppColors.black,
                   fontWeight: FontWeight.w400,
                 ),
               ),

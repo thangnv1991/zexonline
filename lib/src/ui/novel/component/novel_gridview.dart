@@ -18,13 +18,13 @@ class NovelGridView extends StatelessWidget {
     final bloc = context.read<NovelBloc>();
     return BlocBuilder<NovelBloc, NovelState>(
         buildWhen: (previous, current) =>
-            previous.selectedType != current.selectedType ||
+            previous.selectedTab != current.selectedTab ||
             previous.status != current.status ||
             previous.novelsByGenre != current.novelsByGenre,
         builder: (context, state) {
-          final selectedType = state.selectedType;
+          final selectedType = state.selectedTab;
           return state.status == PageState.loading
-              ? const Center(child: CustomCircularProgress(color: AppColors.white))
+              ? const Center(child: CustomCircularProgress(color: AppColors.black))
               : BlocBuilder<NovelBloc, NovelState>(
                   buildWhen: (previous, current) =>
                       previous.novelsByGenre[selectedType] != current.novelsByGenre[selectedType] ||
@@ -39,15 +39,14 @@ class NovelGridView extends StatelessWidget {
 
                         return MangaGridShortItem(
                           story: story,
-
                           onNavigateToDetail: () => bloc.add(OnNavigatePage(
                               PageCommandNavigatorPage(
                                   page: AppPages.storyDetail(story.id ?? '')))),
                         );
                       },
                       isLoadMore: state.isLoadMore,
-                      loadMore: () => bloc.add(GetNovelsByGenre(state.selectedType)),
-                      refresh: () => bloc.add(GetNovelsByGenre(state.selectedType, page: 1)),
+                      loadMore: () => bloc.add(GetNovelsByGenre("")),
+                      refresh: () => bloc.add(GetNovelsByGenre("", page: 1)),
                     );
                   });
         });

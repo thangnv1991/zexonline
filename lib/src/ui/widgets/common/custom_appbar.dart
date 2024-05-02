@@ -1,10 +1,10 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/utils/app_assets.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
-import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
@@ -41,9 +41,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               child: IconButton(
                 onPressed: onBack ?? () => Get.find<NavigatorManager>().popBack(),
                 splashRadius: 24,
-                icon: SvgPicture.asset(
-                  AppAssets.ic_arrow_left_svg,
-                ),
+                icon: SvgPicture.asset(AppAssets.ic_arrow_left_svg, color: AppColors.primary),
               ),
             )
           : const SizedBox(),
@@ -54,7 +52,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Text(title,
               style: GoogleFonts.cabin(
                 fontSize: 22,
-                color: AppColors.white,
+                color: AppColors.primary,
                 fontWeight: FontWeight.w600,
               )),
       // Make sure appbar don't change background color when scroll

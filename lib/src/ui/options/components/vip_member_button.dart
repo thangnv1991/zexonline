@@ -19,7 +19,7 @@ class VipMemberButton extends StatelessWidget {
       onTap: () {
         Get.find<NavigatorManager>().navigateToPage(AppPages.payment);
       },
-      backgroundColor: AppColors.white,
+      backgroundColor: AppColors.black,
       borderRadius: 10.borderRadiusAll,
       height: 52,
       child: Row(

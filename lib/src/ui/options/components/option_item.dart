@@ -37,7 +37,7 @@ class OptionItem extends StatelessWidget {
             action.name,
             style: GoogleFonts.cabin(
               fontSize: 16,
-              color: AppColors.white,
+              color: AppColors.black,
             ),
           ),
           12.width,
@@ -54,7 +54,7 @@ class OptionItem extends StatelessWidget {
                       fit: BoxFit.fill,
                       child: CupertinoSwitch(
                         value: state.enableNotification,
-                        activeColor: AppColors.white,
+                        activeColor: AppColors.black,
                         trackColor: AppColors.primary,
                         thumbColor: AppColors.secondary4,
                         onChanged: (value) =>

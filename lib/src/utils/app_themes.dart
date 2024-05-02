@@ -18,8 +18,7 @@ class AppThemes {
       outlinedButtonTheme: outlinedButtonThemeData,
       buttonTheme: buttonThemeData,
       bottomSheetTheme: bottomSheetThemeData,
-      bottomNavigationBarTheme:
-          bottomNavigationThemeData(AppColorSchemes.darkColorScheme),
+      bottomNavigationBarTheme: bottomNavigationThemeData(AppColorSchemes.darkColorScheme),
       colorScheme: AppColorSchemes.darkColorScheme,
       snackBarTheme: snackBarThemeData,
       scaffoldBackgroundColor: AppColorSchemes.darkColorScheme.onPrimary,
@@ -46,8 +45,7 @@ class AppThemes {
       outlinedButtonTheme: outlinedButtonThemeData,
       buttonTheme: buttonThemeData,
       bottomSheetTheme: bottomSheetThemeData,
-      bottomNavigationBarTheme:
-          bottomNavigationThemeData(AppColorSchemes.lightColorScheme),
+      bottomNavigationBarTheme: bottomNavigationThemeData(AppColorSchemes.lightColorScheme),
       colorScheme: AppColorSchemes.lightColorScheme,
       snackBarTheme: snackBarThemeData,
       scaffoldBackgroundColor: AppColorSchemes.lightColorScheme.onPrimary,
@@ -64,8 +62,7 @@ class AppThemes {
   }
 }
 
-Size get _minimumSize =>
-    const Size(AppDimensions.sized46, AppDimensions.sized46);
+Size get _minimumSize => const Size(AppDimensions.sized46, AppDimensions.sized46);
 
 RoundedRectangleBorder get _shape => const RoundedRectangleBorder(
       borderRadius: BorderRadius.all(Radius.circular(AppDimensions.sized8)),
@@ -113,18 +110,15 @@ ButtonThemeData get buttonThemeData => ButtonThemeData(
 BottomSheetThemeData get bottomSheetThemeData => BottomSheetThemeData(
       backgroundColor: AppColorSchemes.lightColorScheme.surface,
       shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-              top: Radius.circular(AppDimensions.sized16))),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(AppDimensions.sized16))),
     );
 
-PageTransitionsTheme get pageTransitionsTheme =>
-    const PageTransitionsTheme(builders: {
+PageTransitionsTheme get pageTransitionsTheme => const PageTransitionsTheme(builders: {
       TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
     });
 
-BottomNavigationBarThemeData bottomNavigationThemeData(
-    ColorScheme colorSchemes) {
+BottomNavigationBarThemeData bottomNavigationThemeData(ColorScheme colorSchemes) {
   return BottomNavigationBarThemeData(
     backgroundColor: colorSchemes.onPrimary,
     showSelectedLabels: true,
@@ -140,14 +134,13 @@ SnackBarThemeData get snackBarThemeData {
   return SnackBarThemeData(
     backgroundColor: AppColorSchemes.darkColorScheme.tertiary,
     actionTextColor: AppColorSchemes.darkColorScheme.primary,
-    contentTextStyle: const TextStyle(color: AppColors.white),
+    contentTextStyle: const TextStyle(color: AppColors.black),
   );
 }
 
 DialogTheme get dialogThemeData {
   return DialogTheme(
     backgroundColor: AppColorSchemes.darkColorScheme.tertiary,
-    shape: const RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(28.0))),
+    shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(28.0))),
   );
 }

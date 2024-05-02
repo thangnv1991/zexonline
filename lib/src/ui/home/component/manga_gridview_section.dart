@@ -11,13 +11,15 @@ import 'package:zexonline/src/utils/app_pages.dart';
 class MangaGridViewSection extends StatelessWidget {
   final String title;
   final List<StoryModel> stories;
+  final VoidCallback? onTapSeeMore;
 
-  const MangaGridViewSection(this.title, {super.key, this.stories = const []});
+  const MangaGridViewSection(this.title, {super.key, this.stories = const [], this.onTapSeeMore});
 
   @override
   Widget build(BuildContext context) {
     return HomeSectionCommonWidget(
       title,
+      onTapSeeMore: onTapSeeMore,
       child: CustomGridView(
         itemCount: stories.length,
         itemBuilder: (context, index, heightItem) {
@@ -26,8 +28,8 @@ class MangaGridViewSection extends StatelessWidget {
           return MangaGridShortItem(
             story: item,
             height: heightItem,
-            onNavigateToDetail: () => Get.find<HomeBloc>().add(
-                OnNavigatePage(PageCommandNavigatorPage(page: AppPages.storyDetail(item.id ?? '')))),
+            onNavigateToDetail: () => Get.find<HomeBloc>().add(OnNavigatePage(
+                PageCommandNavigatorPage(page: AppPages.storyDetail(item.id ?? '')))),
           );
         },
       ),

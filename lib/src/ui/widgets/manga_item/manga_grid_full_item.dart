@@ -8,6 +8,7 @@ import 'package:zexonline/src/utils/app_colors.dart';
 class MangaGridFullItem extends StatelessWidget {
   final Function()? onNavigateToDetail;
   final StoryModel story;
+
   const MangaGridFullItem({
     super.key,
     required this.onNavigateToDetail,
@@ -32,7 +33,11 @@ class MangaGridFullItem extends StatelessWidget {
                   gradient: AppColors.gradient(),
                 ),
                 width: 140,
-                child: ImageWidget(image: story.banner!,fit: BoxFit.fitWidth,width: 140,),
+                child: ImageWidget(
+                  image: story.banner!,
+                  fit: BoxFit.fitWidth,
+                  width: 140,
+                ),
               ),
             ),
           ),
@@ -48,7 +53,7 @@ class MangaGridFullItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: GoogleFonts.cabin(
                       fontSize: 13,
-                      color: AppColors.white,
+                      color: AppColors.black,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
@@ -57,7 +62,7 @@ class MangaGridFullItem extends StatelessWidget {
                   //   '10 Hours Ago',
                   //   style: GoogleFonts.cabin(
                   //     fontSize: 10,
-                  //     color: AppColors.white,
+                  //     color: AppColors.black,
                   //     fontWeight: FontWeight.w400,
                   //   ),
                   // ),

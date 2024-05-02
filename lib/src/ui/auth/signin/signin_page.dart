@@ -155,7 +155,7 @@ class _SignInPageState extends State<SignInPage> {
                                   style: GoogleFonts.cabin(
                                     fontSize: 13,
                                     decoration: TextDecoration.underline,
-                                    decorationColor: AppColors.white,
+                                    decorationColor: AppColors.black,
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {

@@ -1,10 +1,10 @@
-part of 'manga_bloc.dart';
+part of 'more_story_bloc.dart';
 
-abstract class MangaEvent extends Equatable {
-  const MangaEvent();
+abstract class MoreStoryEvent extends Equatable {
+  const MoreStoryEvent();
 }
 
-class OnChangeType extends MangaEvent {
+class OnChangeType extends MoreStoryEvent {
   final String type;
 
   const OnChangeType(this.type);
@@ -13,7 +13,7 @@ class OnChangeType extends MangaEvent {
   List<Object> get props => [];
 }
 
-class OnNavigatePage extends MangaEvent {
+class OnNavigatePage extends MoreStoryEvent {
   final PageCommandNavigatorPage page;
 
   const OnNavigatePage(this.page);
@@ -22,25 +22,25 @@ class OnNavigatePage extends MangaEvent {
   List<Object> get props => [];
 }
 
-class OnClearPageCommand extends MangaEvent {
+class OnClearPageCommand extends MoreStoryEvent {
   const OnClearPageCommand();
 
   @override
   List<Object> get props => [];
 }
 
-class GetListStories extends MangaEvent {
+class GetListStories extends MoreStoryEvent {
   final SortType sort;
   final int page;
   final int pageSize;
 
-  const GetListStories(this.sort, {this.page = 1, this.pageSize = 3});
+  const GetListStories(this.sort, {this.page = 1, this.pageSize = 10});
 
   @override
   List<Object> get props => [];
 }
 
-class GetNovelsByGenre extends MangaEvent {
+class GetNovelsByGenre extends MoreStoryEvent {
   final String genreId;
   final int? page;
 

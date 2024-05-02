@@ -3,7 +3,7 @@ part of 'novel_bloc.dart';
 class NovelState extends Equatable {
   final PageState status;
   final String error;
-  final String selectedType;
+  final int selectedTab;
   final PageCommand? pageCommand;
   final List<Genre> genres;
   final Map<String, List<StoryModel>> novelsByGenre;
@@ -13,7 +13,7 @@ class NovelState extends Equatable {
   const NovelState({
     required this.status,
     required this.error,
-    required this.selectedType,
+    required this.selectedTab,
     this.pageCommand,
     this.genres = const [],
     this.novelsByGenre = const {},
@@ -24,7 +24,7 @@ class NovelState extends Equatable {
   NovelState copyWith({
     PageState? status,
     String? error,
-    String? selectedType,
+    int? selectedTab,
     PageCommand? pageCommand,
     List<Genre>? genres,
     Map<String, List<StoryModel>>? novelsByGenre,
@@ -34,7 +34,7 @@ class NovelState extends Equatable {
     return NovelState(
       status: status ?? this.status,
       error: error ?? this.error,
-      selectedType: selectedType ?? this.selectedType,
+      selectedTab: selectedTab ?? this.selectedTab,
       pageCommand: pageCommand,
       genres: genres ?? this.genres,
       novelsByGenre: novelsByGenre ?? this.novelsByGenre,
@@ -47,7 +47,7 @@ class NovelState extends Equatable {
   List<Object?> get props => [
         status,
         error,
-        selectedType,
+        selectedTab,
         pageCommand,
         genres,
         novelsByGenre,

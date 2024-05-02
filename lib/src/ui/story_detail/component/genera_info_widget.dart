@@ -30,20 +30,20 @@ class GeneralInfoWidget extends StatelessWidget {
                     width: Get.width - 100,
                     child: Text(
                       story.title ?? '',
-                      style: GoogleFonts.cabin(fontSize: 18, color: AppColors.white),
+                      style: GoogleFonts.cabin(fontSize: 18, color: AppColors.black),
                     ),
                   ),
                   4.height,
                   Text(
                     story.author ?? '',
                     style: GoogleFonts.cabin(
-                        fontSize: 13, color: AppColors.white, fontWeight: FontWeight.w400),
+                        fontSize: 13, color: AppColors.black, fontWeight: FontWeight.w400),
                   ),
                   4.height,
                   Text(
                     '${AppUtils.formatUtcTime(dateUtc: story.createdAt)} - ${story.status?.toUpperCase()}',
                     style: GoogleFonts.cabin(
-                        fontSize: 10, color: AppColors.white, fontWeight: FontWeight.w600),
+                        fontSize: 10, color: AppColors.black, fontWeight: FontWeight.w600),
                   ),
                   4.height,
                   RatingWidget(story.avgRating ?? 0, height: 16, showText: true),

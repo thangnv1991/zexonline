@@ -8,6 +8,7 @@ import 'package:zexonline/src/utils/app_colors.dart';
 
 class SortByBottomSheet extends StatelessWidget {
   final Function(SortType sortType) onSelectedSortType;
+
   const SortByBottomSheet({super.key, required this.onSelectedSortType});
 
   @override
@@ -18,7 +19,7 @@ class SortByBottomSheet extends StatelessWidget {
       height: Get.height * 0.4,
       padding: 12.paddingHorizontal,
       decoration: BoxDecoration(
-        color: AppColors.white,
+        color: AppColors.black,
         borderRadius: 8.borderRadiusTop,
       ),
       child: Column(

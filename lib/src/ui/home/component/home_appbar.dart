@@ -22,12 +22,12 @@ class HomeAppBar extends StatelessWidget implements PreferredSizeWidget {
           children: [
             Text(
               LocaleKey.hello.tr,
-              style: GoogleFonts.cabin(fontSize: 18, color: AppColors.white),
+              style: GoogleFonts.cabin(fontSize: 18, color: AppColors.black),
             ),
             const SizedBox(height: 5),
             Text(
               LocaleKey.whichMangaSuitsYourCurrentMood.tr,
-              style: GoogleFonts.cabin(fontSize: 13, color: AppColors.white),
+              style: GoogleFonts.cabin(fontSize: 13, color: AppColors.black),
             ),
           ],
         ),

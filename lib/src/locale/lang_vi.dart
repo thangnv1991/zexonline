@@ -65,6 +65,7 @@ Map<String, String> viVN = {
 
   // Novel
   LocaleKey.novel: 'Tiểu thuyết',
+  LocaleKey.audio: 'Audio',
   LocaleKey.manga: 'Truyện tranh',
 
   // Manga detail

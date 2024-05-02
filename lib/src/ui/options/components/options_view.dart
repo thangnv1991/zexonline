@@ -36,8 +36,8 @@ class OptionsView extends StatelessWidget {
                 const SizedBox(
                   height: kToolbarHeight + 40,
                 ),
-                const VipMemberButton(),
-                20.height,
+                // const VipMemberButton(),
+                // 20.height,
                 ...OptionAction.values.map((action) {
                   if ((action == OptionAction.Logout)) {
                     final appShared = Get.find<AppShared>();

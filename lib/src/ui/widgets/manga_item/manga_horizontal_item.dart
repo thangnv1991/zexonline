@@ -57,7 +57,7 @@ class MangaHorizontalItem extends StatelessWidget {
                           child: Text(
                             '1',
                             style:
-                                GoogleFonts.cabin(fontSize: 8, color: AppColors.white, height: .1),
+                                GoogleFonts.cabin(fontSize: 8, color: AppColors.black, height: .1),
                           ),
                         ),
                       ),
@@ -83,7 +83,7 @@ class MangaHorizontalItem extends StatelessWidget {
                     story.title ?? '',
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cabin(fontSize: 8, color: AppColors.white),
+                    style: GoogleFonts.cabin(fontSize: 8, color: AppColors.black),
                   ),
                 ),
               ),
@@ -107,7 +107,7 @@ class _StaticsItem extends StatelessWidget {
       children: [
         Text(
           value,
-          style: GoogleFonts.cabin(fontSize: 5, color: AppColors.white),
+          style: GoogleFonts.cabin(fontSize: 5, color: AppColors.black),
         ),
         4.width,
         SvgPicture.asset(icon, height: 8),

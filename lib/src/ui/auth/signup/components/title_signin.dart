@@ -19,7 +19,7 @@ class TitleSignUp extends StatelessWidget {
             LocaleKey.keySignUp.tr,
             style: GoogleFonts.cabin(
               fontSize: 22,
-              color: AppColors.white,
+              color: AppColors.black,
               fontWeight: FontWeight.w600,
             ),
           ),
@@ -28,7 +28,7 @@ class TitleSignUp extends StatelessWidget {
             LocaleKey.keySignUpDescription.tr,
             style: GoogleFonts.cabin(
               fontSize: 13,
-              color: AppColors.white,
+              color: AppColors.black,
             ),
           ),
         ],

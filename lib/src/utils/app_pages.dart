@@ -11,6 +11,8 @@ import 'package:zexonline/src/ui/main/binding/main_binding.dart';
 import 'package:zexonline/src/ui/main/main_page.dart';
 import 'package:zexonline/src/ui/manga_chapter_detail/binding/manga_chapter_detail_binding.dart';
 import 'package:zexonline/src/ui/manga_chapter_detail/manga_chapter_detail_page.dart';
+import 'package:zexonline/src/ui/more_story/binding/more_story_binding.dart';
+import 'package:zexonline/src/ui/more_story/more_story_page.dart';
 import 'package:zexonline/src/ui/novel_chapter_detail/binding/novel_chapter_detail_binding.dart';
 import 'package:zexonline/src/ui/novel_chapter_detail/novel_chapter_detail_page.dart';
 import 'package:zexonline/src/ui/payment/binding/payment_binding.dart';
@@ -26,6 +28,7 @@ class AppPages {
   static const String payment = _Paths.payment;
   static const String signIn = _Paths.signIn;
   static const String signUp = _Paths.signUp;
+  static const String moreStory = _Paths.moreStory;
 
   //Root
   static const String storyDetailRoot = '/story-detail';
@@ -94,6 +97,11 @@ class AppPages {
       page: () => const DiscoverPage(),
       binding: DiscoverBinding(),
     ),
+    GetPage(
+      name: _Paths.moreStory,
+      page: () => const MoreStoryPage(),
+      binding: MoreStoryBinding(),
+    ),
   ];
 }
 
@@ -104,6 +112,7 @@ abstract class _Paths {
   static const String signIn = "/sign_in";
   static const String signUp = "/sign_up";
   static const String discover = '/discover';
+  static const String moreStory = '/more-story';
   static const String storyDetail = "${AppPages.storyDetailRoot}/:id";
   static const String mangaChapterDetail = "${AppPages.mangaChapterDetailRoot}/:id";
   static const String novelChapterDetail = "${AppPages.novelChapterDetailRoot}/:id";
