@@ -7,7 +7,8 @@ class RatingWidget extends StatelessWidget {
   final double value;
   final double height;
   final bool showText;
-  const RatingWidget(this.value, {super.key, this.height = 10, this.showText = false})
+
+  const RatingWidget(this.value, {super.key, this.height = 12, this.showText = false})
       : assert(value >= 0);
 
   @override
@@ -16,14 +17,15 @@ class RatingWidget extends StatelessWidget {
       ...List.generate(
           5,
           (index) => ConstrainedBox(
-            constraints: BoxConstraints(maxHeight: height),
-            child: SvgPicture.asset(
+                constraints: BoxConstraints(maxHeight: height),
+                child: SvgPicture.asset(
                   AppAssets.ic_star_svg,
                   // height: height,
-                  colorFilter:
-                      index < value - 1 ? null : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                  colorFilter: index < value - 1
+                      ? null
+                      : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
                 ),
-          )),
+              )),
       if (showText)
         Text('$value / 5',
             style: GoogleFonts.cabin(

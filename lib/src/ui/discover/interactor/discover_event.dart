@@ -11,10 +11,35 @@ class Init extends DiscoverEvent {
   List<Object> get props => [];
 }
 
+class GetGenres extends DiscoverEvent {
+  const GetGenres();
+
+  @override
+  List<Object> get props => [];
+}
+
+class GenresSelectedEvent extends DiscoverEvent {
+  final Genre? selectedGenre;
+
+  const GenresSelectedEvent(this.selectedGenre);
+
+  @override
+  List<Object?> get props => [selectedGenre];
+}
+
 class OnShowBottomSheet extends DiscoverEvent {
   final PageCommandShowBottomSheet? bottomSheet;
 
   const OnShowBottomSheet(this.bottomSheet);
+
+  @override
+  List<Object> get props => [];
+}
+
+class OnChangeTab extends DiscoverEvent {
+  final int type;
+
+  const OnChangeTab(this.type);
 
   @override
   List<Object> get props => [];
@@ -62,6 +87,7 @@ class OnChangeKeySearch extends DiscoverEvent {
 
 class OnClearSelectedGenre extends DiscoverEvent {
   const OnClearSelectedGenre();
+
   @override
   List<Object> get props => [];
 }

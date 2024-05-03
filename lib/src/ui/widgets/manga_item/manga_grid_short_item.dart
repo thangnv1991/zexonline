@@ -7,6 +7,7 @@ import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
 import 'package:zexonline/src/ui/widgets/manga_item/rating_widget.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class MangaGridShortItem extends StatelessWidget {
   final StoryModel story;
@@ -35,7 +36,7 @@ class MangaGridShortItem extends StatelessWidget {
                 clipBehavior: Clip.hardEdge,
                 child: Container(
                   decoration: BoxDecoration(
-                    borderRadius: 4.borderRadiusAll,
+                    borderRadius: 10.borderRadiusAll,
                     gradient: AppColors.gradient(),
                   ),
                   width: 140,
@@ -58,32 +59,20 @@ class MangaGridShortItem extends StatelessWidget {
                     story.title ?? '',
                     maxLines: 3,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cabin(
-                      fontSize: 13,
-                      color: AppColors.black,
-                      fontWeight: FontWeight.w600,
-                    ),
+                    style: AppStyles.fontSize12(fontWeight: FontWeight.w500),
                   ),
                   4.height,
                   Text(
                     story.description ?? '',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cabin(
-                      fontSize: 10,
-                      color: AppColors.black,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: AppStyles.fontSize10(fontWeight: FontWeight.w500),
                   ),
                   const Spacer(),
                   2.height,
                   Text(
                     '${story.totalViews} ${LocaleKey.views}',
-                    style: GoogleFonts.cabin(
-                      fontSize: 10,
-                      color: AppColors.secondary4,
-                      fontWeight: FontWeight.w700,
-                    ),
+                    style: AppStyles.fontSize10(color: AppColors.secondary1),
                   ),
                   2.height,
                   RatingWidget(story.avgRating ?? 0),

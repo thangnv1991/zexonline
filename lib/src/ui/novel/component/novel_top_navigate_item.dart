@@ -23,7 +23,11 @@ class NovelTopNavigateItem extends StatelessWidget {
           color: AppColors.transparent,
           padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 8),
           child: Text(
-            id == 0 ? LocaleKey.novel.tr : LocaleKey.audio.tr,
+            id == 1
+                ? LocaleKey.novel.tr
+                : id == 2
+                    ? LocaleKey.audio.tr
+                    : LocaleKey.manga.tr,
             style: GoogleFonts.cabin(
               fontSize: 20,
               color: isActive ? null : AppColors.black,

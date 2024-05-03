@@ -28,6 +28,15 @@ class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
     on<OnClearPageCommand>((_, emit) => emit(state.copyWith(pageCommand: null)));
     on<OnNavigatePage>((event, emit) => emit(state.copyWith(pageCommand: event.page)));
     on<OnClearSelectedGenre>((event, emit) => emit(state.copyWith(genres: null)));
+    on<OnChangeTab>(_onChangeTab);
+    on<GetGenres>(_getGenres);
+    on<GenresSelectedEvent>(_genresSelectedEvent);
+  }
+
+  FutureOr _getGenres(GetGenres event, emit) async {
+    final List<Genre> genres = Get.find<MainBloc>().state.genres;
+
+    emit(state.copyWith(genres: genres));
   }
 
   FutureOr<void> _init(Init event, Emitter<DiscoverState> emit) {
@@ -84,5 +93,13 @@ class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
 
   FutureOr<void> _onChangeKeySearch(OnChangeKeySearch event, Emitter<DiscoverState> emit) {
     emit(state.copyWith(keySearch: event.keySearch));
+  }
+
+  FutureOr<void> _onChangeTab(OnChangeTab event, Emitter<DiscoverState> emit) {
+    emit(state.copyWith(selectedTab: event.type));
+  }
+
+  FutureOr<void> _genresSelectedEvent(GenresSelectedEvent event, Emitter<DiscoverState> emit) {
+    emit(state.copyWith(genreSelected: event.selectedGenre));
   }
 }

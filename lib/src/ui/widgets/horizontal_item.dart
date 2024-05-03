@@ -40,7 +40,7 @@ class HorizontalItem extends StatelessWidget {
                 ),
                 child: ImageWidget(
                   image: AppConstants.domainImage(story.banner),
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fitHeight,
                   height: height,
                 ),
               ),

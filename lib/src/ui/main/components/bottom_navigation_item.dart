@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/enums/enum_bottom_navigation_page.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/main/interactor/main_bloc.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class BottomNavigationItem extends StatelessWidget {
   final BottomNavigationPage page;
@@ -41,21 +41,12 @@ class BottomNavigationItem extends StatelessWidget {
                   height: 24,
                   width: 24,
                   colorFilter:
-                      isActive ? null : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                      isActive ? null : ColorFilter.mode(AppColors.inActive, BlendMode.srcIn),
                 ),
                 const SizedBox(height: 6),
-                ShaderMask(
-                  blendMode: BlendMode.srcIn,
-                  shaderCallback: (bounds) =>
-                      (isActive ? AppColors.gradient() : unActiveGradient).createShader(
-                    Rect.fromLTWH(0, 0, bounds.width, bounds.height),
-                  ),
-                  child: Text(
-                    page.nameTab,
-                    style: GoogleFonts.cabin(
-                      fontSize: 12,
-                    ),
-                  ),
+                Text(
+                  page.nameTab,
+                  style: AppStyles.fontSize12(color: isActive ? AppColors. : AppColors.inActive),
                 ),
               ],
             ),

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class HomeSectionCommonWidget extends StatelessWidget {
   final String title;
@@ -27,22 +27,29 @@ class HomeSectionCommonWidget extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: GoogleFonts.cabin(fontSize: 16, color: AppColors.black),
+                    style: AppStyles.fontSize18(),
                   ),
                   TextButton(
-                    style: TextButton.styleFrom(padding: EdgeInsets.zero),
+                    style: TextButton.styleFrom(
+                      padding: EdgeInsets.zero,
+                      minimumSize: const Size(70, 22),
+                      maximumSize: const Size(70, 22),
+                      side: const BorderSide(
+                        color: AppColors.primary,
+                      ),
+                    ),
                     onPressed: () {
                       onTapSeeMore?.call();
                     },
                     child: Text(
                       LocaleKey.seeMore.tr,
-                      style: GoogleFonts.cabin(fontSize: 16, color: AppColors.red),
+                      style: AppStyles.fontSize12(color: AppColors.primary),
                     ),
                   ),
                 ],
               ),
               Container(
-                width: 24,
+                width: 48,
                 height: 2,
                 decoration: BoxDecoration(gradient: AppColors.gradient()),
               )

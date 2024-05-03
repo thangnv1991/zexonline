@@ -1,13 +1,13 @@
+import 'package:blurrycontainer/blurrycontainer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
-import 'package:zexonline/src/utils/app_assets.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class MangaHorizontalItem extends StatelessWidget {
   final StoryModel story;
@@ -30,8 +30,8 @@ class MangaHorizontalItem extends StatelessWidget {
     return GestureDetector(
       onTap: onNavigateToDetail,
       child: ClipRRect(
-        borderRadius: 4.borderRadiusAll,
-        clipBehavior: Clip.hardEdge,
+        borderRadius: 10.borderRadiusAll,
+        // clipBehavior: Clip.hardEdge,
         child: SizedBox(
           height: height,
           width: width,
@@ -42,48 +42,23 @@ class MangaHorizontalItem extends StatelessWidget {
                 fit: BoxFit.fitWidth,
                 width: width,
               ),
-              if (isTop)
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 3, vertical: 6),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Container(
-                        width: 16,
-                        height: 16,
-                        decoration:
-                            const BoxDecoration(color: AppColors.red, shape: BoxShape.circle),
-                        child: Center(
-                          child: Text(
-                            '1',
-                            style:
-                                GoogleFonts.cabin(fontSize: 8, color: AppColors.black, height: .1),
-                          ),
-                        ),
-                      ),
-                      const Spacer(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          _StaticsItem('${story.totalViews}', AppAssets.ic_eye_svg),
-                          2.height,
-                          _StaticsItem('${story.avgRating}', AppAssets.ic_star_svg),
-                        ],
-                      )
-                    ],
-                  ),
-                ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Container(
-                  padding: 4.paddingAll,
-                  width: Get.width,
-                  decoration: BoxDecoration(gradient: AppColors.linearGradient()),
+                child: BlurryContainer(
+                  blur: 4,
+                  width: width,
+                  height: 27,
+                  elevation: 0,
+                  color: Colors.transparent,
+                  padding: 8.paddingAll,
+                  borderRadius: const BorderRadius.only(
+                      bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
                   child: Text(
                     story.title ?? '',
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: GoogleFonts.cabin(fontSize: 8, color: AppColors.black),
+                    style: AppStyles.fontSize8(),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),

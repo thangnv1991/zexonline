@@ -16,7 +16,7 @@ class DiscoverPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => Get.find<DiscoverBloc>()..add(const OnSearchStories(page: 1)),
+      create: (context) => Get.find<DiscoverBloc>()..add(const GetGenres()),
       child: BlocConsumer<DiscoverBloc, DiscoverState>(
         listener: (context, state) {
           if (state.pageCommand is PageCommandShowBottomSheet) {

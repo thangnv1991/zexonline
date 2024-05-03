@@ -55,7 +55,7 @@ class NovelPage extends StatelessWidget {
                                           Color(0xFFDA58F7),
                                         ])),
                                 onTap: (index) => Get.find<NovelBloc>().add(OnChangeType(index)),
-                                tabs: const [NovelTopNavigateItem(0), NovelTopNavigateItem(1)]),
+                                tabs: const [NovelTopNavigateItem(1), NovelTopNavigateItem(2)]),
                           );
                         }),
                   ),

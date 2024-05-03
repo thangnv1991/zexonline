@@ -9,8 +9,10 @@ class DiscoverState extends Equatable {
   final SortType selectedSortType;
   final List<StoryModel> stories;
   final String keySearch;
+  final Genre? genreSelected;
   final Meta? meta;
   final bool isLoadMore;
+  final int selectedTab;
 
   const DiscoverState({
     required this.status,
@@ -23,6 +25,8 @@ class DiscoverState extends Equatable {
     this.keySearch = '',
     this.meta,
     this.isLoadMore = false,
+    this.selectedTab = 0,
+    this.genreSelected,
   });
 
   DiscoverState copyWith({
@@ -37,6 +41,8 @@ class DiscoverState extends Equatable {
     String? keySearch,
     Meta? meta,
     bool? isLoadMore,
+    int? selectedTab,
+    Genre? genreSelected,
   }) {
     return DiscoverState(
       status: status ?? this.status,
@@ -49,6 +55,8 @@ class DiscoverState extends Equatable {
       keySearch: keySearch ?? this.keySearch,
       meta: meta ?? this.meta,
       isLoadMore: isLoadMore ?? this.isLoadMore,
+      selectedTab: selectedTab ?? this.selectedTab,
+      genreSelected: genreSelected ?? this.genreSelected,
     );
   }
 
@@ -64,5 +72,7 @@ class DiscoverState extends Equatable {
         keySearch,
         meta,
         isLoadMore,
+        selectedTab,
+        genreSelected
       ];
 }

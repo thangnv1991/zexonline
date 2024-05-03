@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:zexonline/src/enums/enum_bottom_navigation_page.dart';
-import 'package:zexonline/src/ui/discover/binding/discover_binding.dart';
-import 'package:zexonline/src/ui/discover/discover_page.dart';
 import 'package:zexonline/src/ui/home/binding/home_binding.dart';
 import 'package:zexonline/src/ui/home/home_page.dart';
 import 'package:zexonline/src/ui/library/binding/library_binding.dart';
