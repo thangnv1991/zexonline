@@ -21,6 +21,8 @@ class AppColors {
   static const active = Color(0xFF007EA6);
   static const inActive = Color(0xFF7C99A1);
 
+  static const backgroundBottomBar = Color(0xCCFEFFFF);
+
   static LinearGradient gradient() {
     return LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
       const Color(0xFF000000),

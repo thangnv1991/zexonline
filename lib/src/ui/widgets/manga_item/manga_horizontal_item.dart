@@ -19,8 +19,8 @@ class MangaHorizontalItem extends StatelessWidget {
   const MangaHorizontalItem({
     super.key,
     required this.story,
-    this.height = 120,
-    this.width = 90,
+    this.height = 117,
+    this.width = 84,
     this.isTop = true,
     required this.onNavigateToDetail,
   });
@@ -47,18 +47,20 @@ class MangaHorizontalItem extends StatelessWidget {
                 child: BlurryContainer(
                   blur: 4,
                   width: width,
-                  height: 27,
+                  height: 31,
                   elevation: 0,
-                  color: Colors.transparent,
-                  padding: 8.paddingAll,
+                  color: AppColors.white.withOpacity(0.75),
+                  padding: 4.paddingAll,
                   borderRadius: const BorderRadius.only(
                       bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),
-                  child: Text(
-                    story.title ?? '',
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
-                    style: AppStyles.fontSize8(),
-                    textAlign: TextAlign.center,
+                  child: Center(
+                    child: Text(
+                      story.title ?? '',
+                      maxLines: 2,
+                      overflow: TextOverflow.ellipsis,
+                      style: AppStyles.fontSize8(),
+                      textAlign: TextAlign.center,
+                    ),
                   ),
                 ),
               ),

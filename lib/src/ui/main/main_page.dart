@@ -13,7 +13,7 @@ import 'package:zexonline/src/ui/manga/manga_page.dart';
 import 'package:zexonline/src/ui/novel/binding/novel_binding.dart';
 import 'package:zexonline/src/ui/novel/novel_page.dart';
 import 'package:zexonline/src/ui/options/binding/options_binding.dart';
-import 'package:zexonline/src/ui/options/options_page.dart';
+import 'package:zexonline/src/ui/options/settings_page.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 
 Map<BottomNavigationPage, Widget> pages = {};
@@ -65,7 +65,7 @@ class MainPage extends StatelessWidget {
         return pages.putIfAbsent(currentPage, () => const LibraryPage());
       case BottomNavigationPage.Options:
         OptionsBinding().dependencies();
-        return pages.putIfAbsent(currentPage, () => const OptionsPage());
+        return pages.putIfAbsent(currentPage, () => const SettingsPage());
     }
   }
 }

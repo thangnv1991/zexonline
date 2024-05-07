@@ -14,7 +14,8 @@ class LibraryTopNavigationBar extends StatelessWidget {
         height: 36,
         decoration: BoxDecoration(
           borderRadius: 50.borderRadiusAll,
-          color: AppColors.black,
+          color: AppColors.white,
+          border: Border.all(color: AppColors.primary),
         ),
         child: Stack(
           children: [

@@ -23,15 +23,15 @@ class LibraryTopNavigationItem extends StatelessWidget {
         bool isActive = state.currentTab == tab;
         return Expanded(
           child: Container(
-            margin: 2.paddingAll,
+            margin: 0.paddingAll,
             decoration: BoxDecoration(
               borderRadius: 50.borderRadiusAll,
             ),
             child: RippleButton(
               onTap: () => Get.find<LibraryBloc>().add(OnChangeLibraryTab(tab)),
               title: tab.tabName,
-              colorTitle: isActive ? AppColors.black : AppColors.secondary2,
-              backgroundColor: isActive ? AppColors.secondary2 : AppColors.black,
+              colorTitle: isActive ? AppColors.white : AppColors.secondary2,
+              backgroundColor: isActive ? AppColors.primary : Colors.transparent,
               padding: 0.paddingAll,
             ),
           ),

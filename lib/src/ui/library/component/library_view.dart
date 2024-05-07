@@ -9,6 +9,7 @@ import 'package:zexonline/src/ui/library/component/library_top_navigationbar.dar
 import 'package:zexonline/src/ui/library/interactor/library_bloc.dart';
 import 'package:zexonline/src/ui/widgets/base/app_body.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_appbar.dart';
+import 'package:zexonline/src/utils/app_colors.dart';
 
 class LibraryView extends StatelessWidget {
   const LibraryView({super.key});
@@ -17,23 +18,27 @@ class LibraryView extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<LibraryBloc, LibraryState>(builder: (context, state) {
       return BasePage(
+        isBackground: false,
         child: Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: AppColors.white,
             extendBodyBehindAppBar: true,
             appBar: CustomAppBar(
               implyLeading: false,
               title: LocaleKey.library.tr,
-              backgroundColor: Colors.transparent,
+              backgroundColor: AppColors.white,
             ),
-            body: Column(
-              children: [
-                const SizedBox(height: kToolbarHeight + 20),
-                const LibraryTopNavigationBar(),
-                20.height,
-                Expanded(
-                  child: AppBody(pageState: state.status, success: const LibraryMangaGridView()),
-                ),
-              ],
+            body: Padding(
+              padding: 15.paddingHorizontal,
+              child: Column(
+                children: [
+                  const SizedBox(height: kToolbarHeight + 24),
+                  const LibraryTopNavigationBar(),
+                  20.height,
+                  Expanded(
+                    child: AppBody(pageState: state.status, success: const LibraryMangaGridView()),
+                  ),
+                ],
+              ),
             )),
       );
     });

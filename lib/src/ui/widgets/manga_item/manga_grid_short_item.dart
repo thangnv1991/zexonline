@@ -32,19 +32,19 @@ class MangaGridShortItem extends StatelessWidget {
             Expanded(
               flex: 75,
               child: ClipRRect(
-                borderRadius: 4.borderRadiusAll,
+                borderRadius: 10.borderRadiusAll,
                 clipBehavior: Clip.hardEdge,
                 child: Container(
                   decoration: BoxDecoration(
                     borderRadius: 10.borderRadiusAll,
                     gradient: AppColors.gradient(),
                   ),
-                  width: 140,
+                  width: 84,
                   child: ImageWidget(
                     image: AppConstants.domainImage(story.banner),
                     fit: BoxFit.cover,
-                    width: 140,
-                    height: height,
+                    width: 84,
+                    height: 117,
                   ),
                 ),
               ),
@@ -57,14 +57,14 @@ class MangaGridShortItem extends StatelessWidget {
                 children: [
                   Text(
                     story.title ?? '',
-                    maxLines: 3,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.fontSize12(fontWeight: FontWeight.w500),
                   ),
                   4.height,
                   Text(
                     story.description ?? '',
-                    maxLines: 1,
+                    maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.fontSize10(fontWeight: FontWeight.w500),
                   ),

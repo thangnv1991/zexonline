@@ -63,6 +63,9 @@ class AppBody extends StatelessWidget {
                 padding: 100.paddingHorizontal,
                 child: RippleButton(
                   title: LocaleKey.keySignIn.tr,
+                  height: 46,
+                  padding: 10.paddingAll,
+                  backgroundColor: AppColors.primary,
                   onTap: () {
                     Get.find<NavigatorManager>().navigateToPage(AppPages.signIn);
                   },

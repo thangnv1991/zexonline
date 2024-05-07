@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zexonline/src/enums/enum_bottom_navigation_page.dart';
 import 'package:zexonline/src/ui/main/components/bottom_navigation_item.dart';
+import 'package:zexonline/src/utils/app_colors.dart';
 
 final bottomHeight = 72 + Get.mediaQuery.padding.bottom;
 
@@ -16,7 +17,7 @@ class AppBottomNavigationBar extends StatelessWidget {
       width: Get.width,
       height: bottomHeight,
       elevation: 0,
-      color: Colors.transparent,
+      color: AppColors.backgroundBottomBar,
       padding: EdgeInsets.zero,
       borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
       child: const Stack(

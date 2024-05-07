@@ -43,12 +43,13 @@ class _SignInPageState extends State<SignInPage> {
             canPop: false,
             child: BasePage(
               unFocusWhenTouchOutsideInput: true,
+              isBackground: false,
               child: LoadingFullScreen(
                 loading: state.status == PageState.loading,
                 child: Scaffold(
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: AppColors.white,
                   extendBodyBehindAppBar: true,
-                  appBar: const CustomAppBar(backgroundColor: Colors.transparent),
+                  appBar: const CustomAppBar(backgroundColor: AppColors.white),
                   body: Padding(
                     padding: EdgeInsets.only(top: Get.statusBarHeight),
                     child: Column(

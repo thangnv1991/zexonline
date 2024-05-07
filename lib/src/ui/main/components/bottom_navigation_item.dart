@@ -40,13 +40,15 @@ class BottomNavigationItem extends StatelessWidget {
                   page.activeIcon,
                   height: 24,
                   width: 24,
-                  colorFilter:
-                      isActive ? null : ColorFilter.mode(AppColors.inActive, BlendMode.srcIn),
+                  colorFilter: isActive
+                      ? const ColorFilter.mode(AppColors.active, BlendMode.srcIn)
+                      : const ColorFilter.mode(AppColors.inActive, BlendMode.srcIn),
                 ),
                 const SizedBox(height: 6),
                 Text(
                   page.nameTab,
-                  style: AppStyles.fontSize12(color: isActive ? AppColors. : AppColors.inActive),
+                  style:
+                      AppStyles.fontSize12(color: isActive ? AppColors.active : AppColors.inActive),
                 ),
               ],
             ),

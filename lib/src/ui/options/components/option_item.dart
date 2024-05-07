@@ -31,6 +31,7 @@ class OptionItem extends StatelessWidget {
             action.icon,
             width: 24,
             height: 24,
+            colorFilter: const ColorFilter.mode(AppColors.active, BlendMode.srcIn),
           ),
           12.width,
           Text(
@@ -54,9 +55,9 @@ class OptionItem extends StatelessWidget {
                       fit: BoxFit.fill,
                       child: CupertinoSwitch(
                         value: state.enableNotification,
-                        activeColor: AppColors.black,
-                        trackColor: AppColors.primary,
-                        thumbColor: AppColors.secondary4,
+                        activeColor: AppColors.active,
+                        trackColor: AppColors.active,
+                        thumbColor: AppColors.inActive,
                         onChanged: (value) =>
                             Get.find<OptionsBloc>().add(UpdateSetting(enableNotification: value)),
                       ),

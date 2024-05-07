@@ -24,12 +24,11 @@ class HomeView extends StatelessWidget {
     return BasePage(
       isBackground: false,
       child: Scaffold(
-        backgroundColor: AppColors.greyF3,
-        // appBar: const HomeAppBar(),
+        backgroundColor: AppColors.white,
         body: ListView(
           padding: 0.paddingAll,
           children: [
-            16.height,
+            24.height,
             const MangaListViewSection(),
             16.height,
             BlocBuilder<HomeBloc, HomeState>(

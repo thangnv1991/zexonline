@@ -18,7 +18,7 @@ class HomeSectionCommonWidget extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 6),
+          padding: 6.paddingHorizontal,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -32,6 +32,7 @@ class HomeSectionCommonWidget extends StatelessWidget {
                   TextButton(
                     style: TextButton.styleFrom(
                       padding: EdgeInsets.zero,
+                      tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       minimumSize: const Size(70, 22),
                       maximumSize: const Size(70, 22),
                       side: const BorderSide(
@@ -48,11 +49,27 @@ class HomeSectionCommonWidget extends StatelessWidget {
                   ),
                 ],
               ),
-              Container(
-                width: 48,
-                height: 2,
-                decoration: BoxDecoration(gradient: AppColors.gradient()),
-              )
+              4.height,
+              Row(children: [
+                Container(
+                  width: 24,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: AppColors.black,
+                    borderRadius: 20.borderRadiusLeft,
+                    border: Border.all(),
+                  ),
+                ),
+                Container(
+                  width: 24,
+                  height: 4,
+                  decoration: BoxDecoration(
+                    color: AppColors.white,
+                    borderRadius: 20.borderRadiusRight,
+                    border: Border.all(),
+                  ),
+                )
+              ])
             ],
           ),
         ),
