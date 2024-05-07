@@ -200,7 +200,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
 
   InputDecoration get decoration => InputDecoration(
         filled: true,
-        fillColor: AppColors.black,
+        fillColor: AppColors.white,
         border: widget.border == BorderInput.UNDERLINE
             ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
             : widget.border == BorderInput.BORDER

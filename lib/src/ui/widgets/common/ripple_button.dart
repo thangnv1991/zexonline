@@ -63,7 +63,7 @@ class RippleButton extends StatelessWidget {
           gradient: backgroundColor == null ? AppColors.gradient() : null),
       child: MaterialButton(
         color: AppColors.transparent,
-        disabledColor: AppColors.secondary2,
+        disabledColor: AppColors.neutral,
         highlightColor: AppColors.primary,
         elevation: 0,
         minWidth: double.infinity,

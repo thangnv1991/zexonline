@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/widgets/common/ripple_button.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class ButtonContinue extends StatelessWidget {
   final bool enable;
@@ -18,14 +19,14 @@ class ButtonContinue extends StatelessWidget {
       child: RippleButton(
         enable: enable,
         height: 50,
+        backgroundColor: AppColors.primary,
         margin: const EdgeInsets.symmetric(horizontal: 10),
-        borderRadius: const BorderRadius.all(Radius.circular(4)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         onTap: enable ? onTap : null,
         child: Text(
           LocaleKey.keyContinue.tr.toUpperCase(),
-          style: GoogleFonts.cabin(
-            color: AppColors.black,
-            fontSize: 12,
+          style: AppStyles.fontSize12(
+            color: AppColors.white,
             fontWeight: FontWeight.w600,
           ),
         ),

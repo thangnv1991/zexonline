@@ -20,7 +20,7 @@ class PolicyTerm extends StatelessWidget {
           children: [
             TextSpan(
               text: LocaleKey.keyTermPolicy1.tr,
-              style: GoogleFonts.cabin(fontSize: 13),
+              style: GoogleFonts.cabin(fontSize: 13, color: Colors.green),
             ),
             TextSpan(
               text: LocaleKey.keyTermPolicy2.tr,

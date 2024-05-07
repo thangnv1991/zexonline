@@ -14,6 +14,9 @@ class AppStyles {
   static fontSize12({Color color = AppColors.black, FontWeight fontWeight = FontWeight.w400}) =>
       GoogleFonts.cabin(fontSize: 12, color: color, fontWeight: fontWeight);
 
+  static fontSize13({Color color = AppColors.black, FontWeight fontWeight = FontWeight.w400}) =>
+      GoogleFonts.cabin(fontSize: 13, color: color, fontWeight: fontWeight);
+
   static fontSize10({Color color = AppColors.text1, FontWeight fontWeight = FontWeight.w400}) =>
       GoogleFonts.cabin(fontSize: 12, color: color, fontWeight: fontWeight);
 

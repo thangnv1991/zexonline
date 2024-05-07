@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/utils/app_assets.dart';
 
 class Logo extends StatelessWidget {
@@ -6,11 +7,10 @@ class Logo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 120,
-      height: 120,
-      decoration: const BoxDecoration(shape: BoxShape.circle),
-      child: Image.asset(AppAssets.ic_app_icon_png),
+    return Padding(
+      padding: 80.paddingHorizontal,
+      child: ClipRRect(
+          borderRadius: BorderRadius.circular(50), child: Image.asset(AppAssets.ic_app_icon_png)),
     );
   }
 }

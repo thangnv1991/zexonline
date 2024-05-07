@@ -18,6 +18,7 @@ import 'package:zexonline/src/ui/widgets/common/loading_full_screen.dart';
 import 'package:zexonline/src/ui/widgets/common/text_form_field_common.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class SignInPage extends StatefulWidget {
   const SignInPage({super.key});
@@ -149,7 +150,7 @@ class _SignInPageState extends State<SignInPage> {
                               children: [
                                 TextSpan(
                                   text: LocaleKey.keySignUpDes1.tr,
-                                  style: GoogleFonts.cabin(fontSize: 13),
+                                  style: AppStyles.fontSize13(),
                                 ),
                                 TextSpan(
                                   text: LocaleKey.keySignUpDes2.tr,
@@ -157,6 +158,7 @@ class _SignInPageState extends State<SignInPage> {
                                     fontSize: 13,
                                     decoration: TextDecoration.underline,
                                     decorationColor: AppColors.black,
+                                    color: AppColors.black,
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {
@@ -172,7 +174,7 @@ class _SignInPageState extends State<SignInPage> {
                       ],
                     ),
                   ),
-                  resizeToAvoidBottomInset: false,
+                  resizeToAvoidBottomInset: true,
                 ),
               ),
             ),

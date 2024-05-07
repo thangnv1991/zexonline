@@ -19,8 +19,9 @@ class ButtonCreate extends StatelessWidget {
         enable: enable,
         onTap: enable ? onTap : null,
         height: 50,
+        backgroundColor: AppColors.primary,
         margin: const EdgeInsets.symmetric(horizontal: 10),
-        borderRadius: const BorderRadius.all(Radius.circular(4)),
+        borderRadius: const BorderRadius.all(Radius.circular(10)),
         child: Text(
           LocaleKey.keyCreateAccount.tr.toUpperCase(),
           style: GoogleFonts.cabin(
