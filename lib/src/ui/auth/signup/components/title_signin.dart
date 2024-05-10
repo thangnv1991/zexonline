@@ -13,7 +13,7 @@ class TitleSignUp extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.only(left: 12),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             LocaleKey.keySignUp.tr,
@@ -30,6 +30,7 @@ class TitleSignUp extends StatelessWidget {
               fontSize: 13,
               color: AppColors.black,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

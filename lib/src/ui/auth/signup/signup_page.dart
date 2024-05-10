@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
-import 'package:zexonline/src/ui/auth/component/logo_widget.dart';
 import 'package:zexonline/src/ui/auth/interactor/auth_bloc.dart';
 import 'package:zexonline/src/ui/auth/signup/components/button_create.dart';
 import 'package:zexonline/src/ui/auth/signup/components/policy_term.dart';
@@ -14,6 +13,7 @@ import 'package:zexonline/src/ui/auth/signup/components/title_signin.dart';
 import 'package:zexonline/src/ui/base/base_page.dart';
 import 'package:zexonline/src/ui/base/interactor/page_states.dart';
 import 'package:zexonline/src/ui/main/main_page.dart';
+import 'package:zexonline/src/ui/widgets/common/custom_appbar.dart';
 import 'package:zexonline/src/ui/widgets/common/loading_full_screen.dart';
 import 'package:zexonline/src/ui/widgets/common/text_form_field_common.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
@@ -41,7 +41,9 @@ class SignUpPage extends StatelessWidget {
                 child: LoadingFullScreen(
                   loading: state.status == PageState.loading,
                   child: Scaffold(
-                    backgroundColor: Colors.transparent,
+                    backgroundColor: AppColors.white,
+                    extendBodyBehindAppBar: true,
+                    appBar: const CustomAppBar(backgroundColor: AppColors.white),
                     body: Padding(
                       padding: EdgeInsets.only(top: Get.statusBarHeight),
                       child: SingleChildScrollView(
@@ -49,12 +51,11 @@ class SignUpPage extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             50.height,
-                            const Center(child: Logo()),
                             28.height,
                             const TitleSignUp(),
                             40.height,
                             TextFormFieldCommon(
-                              padding: const EdgeInsets.symmetric(horizontal: 10),
+                              padding: 10.paddingHorizontal,
                               label: LocaleKey.keyYourName.tr,
                               hintText: LocaleKey.keyYourNamePlaceholder.tr,
                               border: BorderInput.BORDER,

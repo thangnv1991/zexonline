@@ -63,7 +63,7 @@ class RippleButton extends StatelessWidget {
           gradient: backgroundColor == null ? AppColors.gradient() : null),
       child: MaterialButton(
         color: AppColors.transparent,
-        disabledColor: AppColors.neutral,
+        disabledColor: AppColors.backgroundDisable,
         highlightColor: AppColors.primary,
         elevation: 0,
         minWidth: double.infinity,
@@ -80,7 +80,7 @@ class RippleButton extends StatelessWidget {
             ? Text(
                 title!,
                 style: GoogleFonts.cabin(
-                  color: colorTitle ?? Colors.white,
+                  color: colorTitle ?? (enable ? AppColors.white : AppColors.textDisable),
                   fontSize: fontSizeTitle,
                   fontWeight: fontWeight,
                 ),

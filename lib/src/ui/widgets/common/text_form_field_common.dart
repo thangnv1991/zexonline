@@ -202,43 +202,43 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
         filled: true,
         fillColor: AppColors.white,
         border: widget.border == BorderInput.UNDERLINE
-            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
+            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary))
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.black, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         focusedBorder: widget.border == BorderInput.UNDERLINE
-            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
+            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary))
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.black, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         enabledBorder: widget.border == BorderInput.UNDERLINE
-            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
+            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary))
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.black, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         errorBorder: widget.border == BorderInput.UNDERLINE
-            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
+            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary))
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.black, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         focusedErrorBorder: widget.border == BorderInput.UNDERLINE
-            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.black))
+            ? const UnderlineInputBorder(borderSide: BorderSide(color: AppColors.primary))
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.black, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         contentPadding:

@@ -19,8 +19,8 @@ class PolicyTerm extends StatelessWidget {
         text: TextSpan(
           children: [
             TextSpan(
-              text: LocaleKey.keyTermPolicy1.tr,
-              style: GoogleFonts.cabin(fontSize: 13, color: Colors.green),
+              text: "${LocaleKey.keyTermPolicy1.tr} ",
+              style: GoogleFonts.cabin(fontSize: 13, color: AppColors.black),
             ),
             TextSpan(
               text: LocaleKey.keyTermPolicy2.tr,
@@ -28,6 +28,7 @@ class PolicyTerm extends StatelessWidget {
                 fontSize: 13,
                 decoration: TextDecoration.underline,
                 decorationColor: AppColors.black,
+                color: AppColors.primary,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {
@@ -37,7 +38,7 @@ class PolicyTerm extends StatelessWidget {
             ),
             TextSpan(
               text: LocaleKey.keyTermPolicy3.tr,
-              style: GoogleFonts.cabin(fontSize: 13),
+              style: GoogleFonts.cabin(fontSize: 13, color: AppColors.black),
             ),
             TextSpan(
               text: LocaleKey.keyTermPolicy4.tr,
@@ -45,6 +46,7 @@ class PolicyTerm extends StatelessWidget {
                 fontSize: 13,
                 decoration: TextDecoration.underline,
                 decorationColor: AppColors.black,
+                color: AppColors.primary,
               ),
               recognizer: TapGestureRecognizer()
                 ..onTap = () {

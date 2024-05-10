@@ -26,7 +26,7 @@ class ButtonContinue extends StatelessWidget {
         child: Text(
           LocaleKey.keyContinue.tr.toUpperCase(),
           style: AppStyles.fontSize12(
-            color: AppColors.white,
+            color: enable ? AppColors.white : AppColors.textDisable,
             fontWeight: FontWeight.w600,
           ),
         ),

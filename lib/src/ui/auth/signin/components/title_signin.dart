@@ -12,8 +12,9 @@ class TitleSignIn extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.only(left: 12),
+      width: Get.width,
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Text(
             LocaleKey.keySignIn.tr,
@@ -30,6 +31,7 @@ class TitleSignIn extends StatelessWidget {
               fontSize: 13,
               color: AppColors.black,
             ),
+            textAlign: TextAlign.center,
           ),
         ],
       ),

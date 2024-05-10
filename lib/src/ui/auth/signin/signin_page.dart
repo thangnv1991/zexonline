@@ -6,7 +6,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
-import 'package:zexonline/src/ui/auth/component/logo_widget.dart';
 import 'package:zexonline/src/ui/auth/interactor/auth_bloc.dart';
 import 'package:zexonline/src/ui/auth/signin/components/button_continue.dart';
 import 'package:zexonline/src/ui/auth/signin/components/title_signin.dart';
@@ -58,7 +57,7 @@ class _SignInPageState extends State<SignInPage> {
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         50.height,
-                        const Center(child: Logo()),
+                        // const Center(child: Logo()),
                         28.height,
                         const TitleSignIn(),
                         40.height,
@@ -158,7 +157,7 @@ class _SignInPageState extends State<SignInPage> {
                                     fontSize: 13,
                                     decoration: TextDecoration.underline,
                                     decorationColor: AppColors.black,
-                                    color: AppColors.black,
+                                    color: AppColors.primary,
                                   ),
                                   recognizer: TapGestureRecognizer()
                                     ..onTap = () {

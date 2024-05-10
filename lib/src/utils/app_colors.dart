@@ -13,6 +13,8 @@ class AppColors {
   static const white = Color(0xFFFFFFFF);
   static const red = Color(0xFFFE4F4F);
   static const neutral = Color(0xFF333333);
+  static const textDisable = Color(0xFFC0C0C0);
+  static const backgroundDisable = Color(0xFFE5E5E5);
 
   static const greyF3 = Color(0xFFF3F3F3);
   static const greyEB = Color(0xFFEBEBEB);
