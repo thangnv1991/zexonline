@@ -5,6 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:get/get.dart';
 import 'package:in_app_review/in_app_review.dart';
+import 'package:share_plus/share_plus.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:zexonline/src/core/repository/auth_repository.dart';
 import 'package:zexonline/src/enums/enum_bottom_navigation_page.dart';
 import 'package:zexonline/src/enums/enum_option_action.dart';
@@ -14,9 +16,6 @@ import 'package:zexonline/src/ui/base/interactor/page_states.dart';
 import 'package:zexonline/src/ui/widgets/base/toast/app_toast.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
-import 'package:share_plus/share_plus.dart';
-import 'package:url_launcher/url_launcher.dart';
-import 'package:zexonline/src/utils/app_shared.dart';
 import 'package:zexonline/src/utils/app_utils.dart';
 
 part 'options_event.dart';
@@ -110,7 +109,7 @@ class OptionsBloc extends Bloc<OptionsEvent, OptionsState> {
 
   FutureOr<void> _fetchSetting(FetchSetting event, Emitter<OptionsState> emit) async {
     try {
-      if(!AppUtils.isLogin()) return;
+      if (!AppUtils.isLogin()) return;
 
       final response = await _authRepository.getSettings();
 

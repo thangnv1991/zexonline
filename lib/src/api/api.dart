@@ -6,13 +6,14 @@ import 'dart:math';
 import 'package:chunked_stream/chunked_stream.dart';
 import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
-import 'package:get/get.dart' as getX;
+import 'package:flutter/material.dart';
+import 'package:get/get.dart' as get_x;
 import 'package:http/http.dart' as http;
+import 'package:mime_type/mime_type.dart';
 import 'package:zexonline/src/api/apiUrl.dart';
 import 'package:zexonline/src/extensions/string_extensions.dart';
 import 'package:zexonline/src/ui/widgets/base/toast/app_toast.dart';
 import 'package:zexonline/src/utils/app_shared.dart';
-import 'package:mime_type/mime_type.dart';
 
 /// The HTTP method request
 enum Method { post, put, patch, delete, get }
@@ -55,7 +56,7 @@ class Api {
     }
 
     if (useIDToken) {
-      final appShared = getX.Get.find<AppShared>();
+      final appShared = get_x.Get.find<AppShared>();
       String? tokenValue = appShared.getTokenValue();
       if (!tokenValue.isNullOrEmpty()) {
         header['Authorization'] = 'Bearer $tokenValue';
@@ -106,8 +107,8 @@ class Api {
       }
       return response;
     } catch (e) {
-      print("📕 error at api: $url");
-      print('📕 error $e');
+      debugPrint("📕 error at api: $url");
+      debugPrint('📕 error $e');
 
       if (e is DioException) {
         if (e.response?.data['errors'] != null) {

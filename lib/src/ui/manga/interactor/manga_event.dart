@@ -34,7 +34,7 @@ class GetListStories extends MangaEvent {
   final int page;
   final int pageSize;
 
-  const GetListStories(this.sort, {this.page = 1, this.pageSize = 3});
+  const GetListStories(this.sort, {this.page = 1, this.pageSize = 4});
 
   @override
   List<Object> get props => [];

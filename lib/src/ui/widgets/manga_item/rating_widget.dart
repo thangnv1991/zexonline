@@ -19,6 +19,7 @@ class RatingWidget extends StatelessWidget {
           (index) => ConstrainedBox(
                 constraints: BoxConstraints(maxHeight: height),
                 child: SvgPicture.asset(
+                  width: 17, height: 16,
                   AppAssets.ic_star_svg,
                   // height: height,
                   colorFilter: index < value - 1

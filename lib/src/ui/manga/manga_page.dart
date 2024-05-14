@@ -9,7 +9,7 @@ import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/base/base_page.dart';
 import 'package:zexonline/src/ui/manga/interactor/manga_bloc.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_appbar.dart';
-import 'package:zexonline/src/ui/widgets/common_list_type.dart';
+import 'package:zexonline/src/ui/widgets/common_grid_view.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
 
@@ -41,12 +41,12 @@ class MangaPage extends StatelessWidget {
                       width: 32,
                       height: 32,
                       decoration: const BoxDecoration(
-                        color: AppColors.secondary2,
+                        color: AppColors.white,
                         shape: BoxShape.circle,
                       ),
                       child: const Icon(
                         Icons.search,
-                        color: AppColors.black,
+                        color: AppColors.primary,
                       )),
                 )
               ]),
@@ -61,25 +61,23 @@ class MangaPage extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
-                      CommonListType(
+                      CommonGridView(
                         type: SortType.NewChapter,
                         storyType: StoryType.Comic,
                         data: state.storiesNewChapter,
                       ),
-                      10.height,
-                      CommonListType(
+                      CommonGridView(
                         type: SortType.LatestUpdate,
                         storyType: StoryType.Comic,
                         data: state.storiesLatestUpdate,
                       ),
-                      10.height,
-                      CommonListType(
+                      CommonGridView(
                         type: SortType.Rate,
                         storyType: StoryType.Comic,
                         data: state.storiesRate,
                       ),
                       10.height,
-                      CommonListType(
+                      CommonGridView(
                         type: SortType.Popular,
                         storyType: StoryType.Comic,
                         data: state.storiesPopular,

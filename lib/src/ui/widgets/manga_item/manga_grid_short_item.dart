@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
+import 'package:get/get.dart';
 import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
@@ -8,6 +8,7 @@ import 'package:zexonline/src/ui/widgets/manga_item/rating_widget.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
 import 'package:zexonline/src/utils/app_styles.dart';
+import 'package:zexonline/src/utils/app_utils.dart';
 
 class MangaGridShortItem extends StatelessWidget {
   final StoryModel story;
@@ -57,7 +58,7 @@ class MangaGridShortItem extends StatelessWidget {
                 children: [
                   Text(
                     story.title ?? '',
-                    maxLines: 2,
+                    maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.fontSize12(fontWeight: FontWeight.w500),
                   ),
@@ -71,7 +72,7 @@ class MangaGridShortItem extends StatelessWidget {
                   const Spacer(),
                   2.height,
                   Text(
-                    '${story.totalViews} ${LocaleKey.views}',
+                    '${AppUtils.formatNumber(story.totalViews ?? 0)} ${LocaleKey.rate.tr}',
                     style: AppStyles.fontSize10(color: AppColors.secondary1),
                   ),
                   2.height,

@@ -18,11 +18,6 @@ class BottomNavigationItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    const unActiveGradient =
-        LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
-      Colors.grey,
-      Colors.grey,
-    ]);
     return BlocBuilder<MainBloc, MainState>(
       buildWhen: (previous, current) => previous.currentPage != current.currentPage,
       builder: (context, state) {

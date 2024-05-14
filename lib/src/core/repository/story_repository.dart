@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:zexonline/src/api/api.dart';
 import 'package:zexonline/src/api/apiUrl.dart';
@@ -27,7 +28,7 @@ class StoryRepository extends Api {
   }
 
   Future<StoriesResponse> getHistoriesGuest(List<String> ids) async {
-    if(ids.isEmpty) return StoriesResponse.fromJson({});
+    if (ids.isEmpty) return StoriesResponse.fromJson({});
 
     final url = APIUrl.getHistoriesGuest;
 
@@ -38,7 +39,6 @@ class StoryRepository extends Api {
         params += ",";
       }
     }
-
 
     final response = await request(url, Method.get, params: {'ids': params});
 
@@ -98,7 +98,7 @@ class StoryRepository extends Api {
     final url = APIUrl.getChapterDetail(chapterId);
     final response = await request(url, Method.get, useIDToken: false);
 
-    print("getChapterDetail $url--- ${response.data}");
+    debugPrint("getChapterDetail $url--- ${response.data}");
     return ChapterDetailResponse.fromJson(response.data);
   }
 }

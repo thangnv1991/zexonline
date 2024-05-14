@@ -14,7 +14,7 @@ enum BottomNavigationPage {
       case BottomNavigationPage.Novel:
         return "Tiểu thuyết";
       case BottomNavigationPage.Manga:
-        return "Truyện tranh";
+        return "Manga";
       case BottomNavigationPage.Library:
         return "Thư viện";
       case BottomNavigationPage.Options:

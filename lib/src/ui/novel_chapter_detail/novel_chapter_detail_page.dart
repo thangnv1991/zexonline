@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:zexonline/src/enums/enum_sheet_type.dart';
+import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/base/interactor/page_command.dart';
 import 'package:zexonline/src/ui/novel_chapter_detail/component/bottom_sheet/novel_setting_bottom_sheet.dart';
 import 'package:zexonline/src/ui/novel_chapter_detail/component/novel_chapter_detail_view.dart';
 import 'package:zexonline/src/ui/novel_chapter_detail/interactor/novel_chapter_detail_bloc.dart';
-import 'package:zexonline/src/utils/app_constants.dart';
 
 class NovelChapterDetailPage extends StatelessWidget {
   const NovelChapterDetailPage({super.key});
@@ -39,7 +39,9 @@ void onShowBottomSheet(PageCommandShowBottomSheet page) async {
   if (page.sheetType == SheetType.NovelSetting) {
     Get.bottomSheet(
       const NovelSettingBottomSheet(),
-      shape: AppConstants.bottomSheetBorder,
+      shape: RoundedRectangleBorder(
+        borderRadius: 30.borderRadiusTop,
+      ),
       barrierColor: Colors.black26,
     );
   }

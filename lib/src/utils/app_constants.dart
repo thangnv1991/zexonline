@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+
 
 class AppConstants {
   // Base name
@@ -26,13 +26,6 @@ class AppConstants {
   //Deeplink
   static const IOS_STORE_ID = '0000000';
 
-  static const bottomSheetBorder = RoundedRectangleBorder(
-    borderRadius: BorderRadius.only(
-      topLeft: Radius.circular(30),
-      topRight: Radius.circular(30),
-    ),
-  );
-
   /// Types
   static const String image = 'image';
   static const String video = 'video';
@@ -45,6 +38,6 @@ class AppConstants {
       'https://pub-9b66aa2beaa54e95996483b056ca9bd8.r2.dev/$key';
 
   static String aboutUsUrl = 'https://zexmanga.online/thong-tin/ban-quyen';
-  static String termUrl = 'https://zexmanga.online/thong-tin/dieu-khoan-dich-vu';
-  static String privacyUrl = 'https://zexmanga.online/thong-tin/chinh-sach-bao-mat';
+  static String termUrl = 'https://zexmanga.online/terms.html';
+  static String privacyUrl = 'https://zexmanga.online/privacy.html';
 }

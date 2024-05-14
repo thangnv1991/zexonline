@@ -32,6 +32,16 @@ class AppUtils {
     }
   }
 
+  static String formatNumber(int number) {
+    if (number < 1000) {
+      return number.toString();
+    } else if (number < 10000) {
+      return '${(number / 1000).toStringAsFixed(1)}k';
+    } else {
+      return '${(number / 1000).round()}k';
+    }
+  }
+
   static bool isLogin() {
     String? tokenValue = Get.find<AppShared>().getTokenValue();
 

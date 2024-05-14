@@ -206,7 +206,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.2),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         focusedBorder: widget.border == BorderInput.UNDERLINE
@@ -214,7 +214,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.2),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         enabledBorder: widget.border == BorderInput.UNDERLINE
@@ -222,7 +222,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.2),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         errorBorder: widget.border == BorderInput.UNDERLINE
@@ -230,7 +230,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.2),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         focusedErrorBorder: widget.border == BorderInput.UNDERLINE
@@ -238,7 +238,7 @@ class _TextFormFieldCommonState extends State<TextFormFieldCommon> {
             : widget.border == BorderInput.BORDER
                 ? OutlineInputBorder(
                     borderRadius: BorderRadius.circular(widget.borderRadius),
-                    borderSide: const BorderSide(color: AppColors.primary, width: 1.0),
+                    borderSide: const BorderSide(color: AppColors.primary, width: 1.2),
                   )
                 : const OutlineInputBorder(borderSide: BorderSide.none),
         contentPadding:

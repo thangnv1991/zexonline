@@ -16,9 +16,7 @@ class AppShared {
   final String _keyTokenValue = "${keyName}_keyTokenValue";
   final String _keyProfile = "${keyName}_keyProfile";
   final String _keyIdsReadNowGuest = "${keyName}_keyIdsReadNowGuest";
-  final String _keyCountNotify = "${keyName}_keyCountNotify";
   final String _keyLanguageCode = "${keyName}_keyLanguageCode";
-  final String _keyGenres = "${keyName}_keyGenres";
   final String _keyNovelBackground = "${keyName}_keyNovelBackground";
   final String _keyNovelTextSize = "${keyName}_keyNovelTextSize";
   final String _keyNovelFontFamily = "${keyName}_keyNovelFontFamily";
@@ -84,12 +82,15 @@ class AppShared {
   }
 
   Future<void> setNovelTextSize(double size) => _box.put(_keyNovelTextSize, size);
+
   double getNovelTextSize() => _box.get(_keyNovelTextSize) ?? 15;
 
   Future<void> setNovelBackground(int color) => _box.put(_keyNovelBackground, color);
+
   Color getNovelBackground() => Color(_box.get(_keyNovelBackground) ?? 0xFFFFFF);
 
   Future<void> setNovelTextFamily(String? fontFamily) => _box.put(_keyNovelFontFamily, fontFamily);
+
   FontFamily getNovelTextFamily() => getFontFamily(_box.get(_keyNovelFontFamily));
 
   Future<int> clear() => _box.clear();

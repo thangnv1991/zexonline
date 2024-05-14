@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/enums/enum_sort_type.dart';
@@ -10,6 +9,7 @@ import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/widgets/horizontal_item.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
+import 'package:zexonline/src/utils/app_styles.dart';
 
 class CommonListType extends StatelessWidget {
   final StoryType storyType;
@@ -35,7 +35,7 @@ class CommonListType extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
-              Text(type.title, style: GoogleFonts.cabin(fontSize: 24, color: AppColors.black)),
+              Text(type.title, style: AppStyles.fontSize18()),
               TextButton(
                 style: TextButton.styleFrom(padding: EdgeInsets.zero),
                 onPressed: () {
@@ -43,7 +43,7 @@ class CommonListType extends StatelessWidget {
                 },
                 child: Text(
                   LocaleKey.seeMore.tr,
-                  style: GoogleFonts.cabin(fontSize: 16, color: AppColors.red),
+                  style: AppStyles.fontSize12(color: AppColors.primary),
                 ),
               ),
             ]),

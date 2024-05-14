@@ -56,10 +56,9 @@ class MangaHorizontalItem extends StatelessWidget {
                   child: Center(
                     child: Text(
                       story.title ?? '',
-                      maxLines: 2,
+                      maxLines: 1,
                       overflow: TextOverflow.ellipsis,
-                      style: AppStyles.fontSize8(),
-                      textAlign: TextAlign.center,
+                      style: AppStyles.fontSize12(fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),

@@ -50,7 +50,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       emit(state.copyWith(status: PageState.loading));
 
-      final result = await _authRepository.signUp({
+      await _authRepository.signUp({
         "name": event.username,
         "email": event.email,
         "password": event.password,
@@ -73,7 +73,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     try {
       emit(state.copyWith(status: PageState.loading));
 
-      final result = await _authRepository
+      await _authRepository
           .login({"email": event.email, "password": event.password}, state.isRemember);
 
       emit(state.copyWith(status: PageState.success));
