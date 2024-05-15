@@ -29,11 +29,31 @@ class OnClearPageCommand extends NovelEvent {
   List<Object> get props => [];
 }
 
-class GetNovelsByGenre extends NovelEvent {
-  final String genreId;
-  final int? page;
+class GetNovels extends NovelEvent {
+  final int page;
+  final int size;
+  final bool isLoadMore;
 
-  const GetNovelsByGenre(this.genreId, {this.page});
+  const GetNovels({
+    this.page = 1,
+    this.isLoadMore = false,
+    this.size = 30,
+  });
+
+  @override
+  List<Object> get props => [];
+}
+
+class GetAudios extends NovelEvent {
+  final int page;
+  final int size;
+  final bool isLoadMore;
+
+  const GetAudios({
+    this.page = 1,
+    this.isLoadMore = false,
+    this.size = 30,
+  });
 
   @override
   List<Object> get props => [];

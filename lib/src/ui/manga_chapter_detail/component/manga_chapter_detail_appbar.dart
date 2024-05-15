@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:visibility_detector/visibility_detector.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/manga_chapter_detail/interactor/manga_chapter_detail_bloc.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_appbar.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
-import 'package:visibility_detector/visibility_detector.dart';
 
 class MangaChapterDetailAppBar extends StatelessWidget {
   const MangaChapterDetailAppBar({super.key});
@@ -20,7 +20,7 @@ class MangaChapterDetailAppBar extends StatelessWidget {
       titleSpacing: 0,
       leadingWidth: 0,
       pinned: true,
-      backgroundColor: Colors.transparent,
+      backgroundColor: AppColors.white,
       bottom: const PreferredSize(preferredSize: Size.zero, child: SizedBox()),
       title: VisibilityDetector(
         key: UniqueKey(),
@@ -44,6 +44,7 @@ class MangaChapterDetailAppBar extends StatelessWidget {
               final chapter = state.chapter;
               return CustomAppBar(
                 implyLeading: true,
+                backgroundColor: AppColors.white,
                 titleWidget: Column(
                   children: [
                     Text(

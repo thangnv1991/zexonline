@@ -30,12 +30,7 @@ class NovelTopNavigateItem extends StatelessWidget {
                     : LocaleKey.manga.tr,
             style: GoogleFonts.cabin(
               fontSize: 20,
-              color: isActive ? null : AppColors.black,
-              foreground: isActive
-                  ? (Paint()
-                    ..shader = AppColors.gradient()
-                        .createShader(const Rect.fromLTWH(0.0, 0.0, 300.0, 20.0)))
-                  : null,
+              color: isActive ? AppColors.primary : AppColors.textDisable,
               fontWeight: FontWeight.w500,
             ),
           ),

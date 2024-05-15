@@ -47,7 +47,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
             return AnnotatedRegion<SystemUiOverlayStyle>(
               value: SystemUiOverlayStyle.light,
               child: Scaffold(
-                backgroundColor: AppColors.secondary1,
+                backgroundColor: AppColors.white,
                 extendBodyBehindAppBar: true,
                 body: story == null
                     ? const CustomCircularProgress(
@@ -78,7 +78,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
                                           height: 20,
                                           width: Get.width,
                                           decoration: BoxDecoration(
-                                              color: AppColors.secondary1,
+                                              color: AppColors.white,
                                               borderRadius: 16.borderRadiusTop),
                                         ),
                                       ),
@@ -104,12 +104,14 @@ class _StoryDetailViewState extends State<StoryDetailView> {
                                         ),
                                       ),
                                       IconButton(
-                                          onPressed: () {
-                                            Get.back();
-                                          },
-                                          icon: SvgPicture.asset(
-                                            AppAssets.ic_arrow_left_svg,
-                                          )),
+                                        onPressed: () {
+                                          Get.back();
+                                        },
+                                        icon: SvgPicture.asset(
+                                          AppAssets.ic_arrow_left_svg,
+                                          color: AppColors.primary,
+                                        ),
+                                      ),
                                     ],
                                   ),
                                 ))
@@ -117,7 +119,7 @@ class _StoryDetailViewState extends State<StoryDetailView> {
                         },
                         body: SafeArea(
                           child: Container(
-                              color: AppColors.secondary1,
+                              color: AppColors.white,
                               padding: 12.paddingHorizontal,
                               child: Column(
                                 children: [

@@ -66,7 +66,7 @@ class NovelChapterDetailView extends StatelessWidget {
                               : RippleButton(
                                   onTap: () {},
                                   margin: 24.paddingHorizontal,
-                                  backgroundColor: AppColors.secondary3,
+                                  backgroundColor: AppColors.primary,
                                   title: state.chapter?.title ?? '',
                                 ),
                           NovelChapterDetailBottomAction(

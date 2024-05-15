@@ -62,14 +62,12 @@ class OnNavigatePage extends DiscoverEvent {
 }
 
 class OnSearchStories extends DiscoverEvent {
-  final int? page;
-  final Genre? genre;
-  final SortType? sortType;
+  final int page;
+  final bool isLoadMore;
 
   const OnSearchStories({
-    this.page,
-    this.genre,
-    this.sortType,
+    this.page = 1,
+    this.isLoadMore = false,
   });
 
   @override

@@ -2,7 +2,6 @@ import 'dart:async';
 
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get/get.dart';
 import 'package:zexonline/src/core/model/genre.dart';
 import 'package:zexonline/src/core/model/request/story_request.dart';
 import 'package:zexonline/src/core/model/response/meta.dart';
@@ -20,66 +19,11 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
     on<OnChangeType>(_onChangeType);
     on<OnNavigatePage>((event, emit) => emit(state.copyWith(pageCommand: event.page)));
     on<OnClearPageCommand>((_, emit) => emit(state.copyWith(pageCommand: null)));
-    on<GetNovelsByGenre>(_getNovelsByGenre);
+    on<GetNovels>(_getNovels);
+    on<GetAudios>(_getAudios);
   }
 
   final StoryRepository _storyRepository = StoryRepository();
-
-  FutureOr _getNovelsByGenre(GetNovelsByGenre event, emit) async {
-    try {
-      if (state.isLoadMore) return;
-
-      emit(state.copyWith(isLoadMore: true));
-
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      int? page = event.page;
-      final String currentKey = event.genreId;
-
-      Map<String, Meta?> metaByGenre = Map.from(state.metaByGenre);
-      Map<String, List<StoryModel>> novelsByGenre = Map.from(state.novelsByGenre);
-
-      if (state.metaByGenre[currentKey] != null && page != 1) {
-        final Meta currentMeta = state.metaByGenre[currentKey]!;
-        if (currentMeta.nextPage == null) {
-          emit(state.copyWith(isLoadMore: false));
-          return;
-        } else {
-          page = currentMeta.nextPage!;
-        }
-      }
-
-      final StoriesResponse result = await _storyRepository.getStories(StoryRequest(
-        type: 'story',
-        genres: currentKey,
-        page: page ?? 1,
-      ));
-
-      metaByGenre[currentKey] = result.meta;
-
-      if (novelsByGenre.keys.contains(currentKey)) {
-        for (var item in result.data) {
-          var index =
-              novelsByGenre[currentKey]?.firstWhereOrNull((element) => element.id == item.id);
-
-          if (index == null) {
-            novelsByGenre[currentKey]!.add(item);
-          }
-        }
-      } else {
-        novelsByGenre[currentKey] = result.data;
-      }
-
-      emit(state.copyWith(
-        novelsByGenre: novelsByGenre,
-        status: PageState.success,
-        metaByGenre: metaByGenre,
-        isLoadMore: false,
-      ));
-    } catch (ex) {
-      emit(state.copyWith(status: PageState.failure, isLoadMore: false));
-    }
-  }
 
   FutureOr _onChangeType(OnChangeType event, emit) async {
     emit(state.copyWith(
@@ -87,5 +31,51 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
       status: PageState.loading,
       isLoadMore: false,
     ));
+
+    if (event.type == 0) {
+      add(const GetNovels());
+    } else {
+      add(const GetAudios());
+    }
+  }
+
+  FutureOr _getNovels(GetNovels event, emit) async {
+    try {
+      if (event.isLoadMore) {
+        if (state.isLoadMore) return;
+        emit(state.copyWith(isLoadMore: true));
+      }
+
+      final StoriesResponse result = await _storyRepository
+          .getStories(StoryRequest(type: 'story', page: event.page, limit: event.size));
+
+      emit(state.copyWith(
+        novels: result.data,
+        status: PageState.success,
+        meta: result.meta,
+        isLoadMore: false,
+      ));
+    } catch (ex) {
+      emit(state.copyWith(status: PageState.failure, isLoadMore: false));
+    }
+  }
+
+  FutureOr _getAudios(GetAudios event, Emitter<NovelState> emit) async {
+    try {
+      if (state.isLoadMore) return;
+      emit(state.copyWith(isLoadMore: true));
+
+      final StoriesResponse result = await _storyRepository
+          .getStories(StoryRequest(type: 'audio', page: event.page, limit: event.size));
+
+      emit(state.copyWith(
+        novels: result.data,
+        status: PageState.success,
+        meta: result.meta,
+        isLoadMore: false,
+      ));
+    } catch (ex) {
+      emit(state.copyWith(status: PageState.failure, isLoadMore: false));
+    }
   }
 }

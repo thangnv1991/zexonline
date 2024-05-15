@@ -5,20 +5,20 @@ class NovelState extends Equatable {
   final String error;
   final int selectedTab;
   final PageCommand? pageCommand;
-  final List<Genre> genres;
-  final Map<String, List<StoryModel>> novelsByGenre;
-  final Map<String, Meta?> metaByGenre;
+  final Meta? meta;
   final bool isLoadMore;
+  final List<StoryModel> novels;
+  final List<StoryModel> audio;
 
   const NovelState({
     required this.status,
     required this.error,
     required this.selectedTab,
     this.pageCommand,
-    this.genres = const [],
-    this.novelsByGenre = const {},
-    this.metaByGenre = const {},
     this.isLoadMore = false,
+    this.meta,
+    this.novels = const [],
+    this.audio = const [],
   });
 
   NovelState copyWith({
@@ -27,19 +27,20 @@ class NovelState extends Equatable {
     int? selectedTab,
     PageCommand? pageCommand,
     List<Genre>? genres,
-    Map<String, List<StoryModel>>? novelsByGenre,
-    Map<String, Meta?>? metaByGenre,
+    List<StoryModel>? novels,
+    List<StoryModel>? audio,
     bool? isLoadMore,
+    Meta? meta,
   }) {
     return NovelState(
       status: status ?? this.status,
       error: error ?? this.error,
       selectedTab: selectedTab ?? this.selectedTab,
       pageCommand: pageCommand,
-      genres: genres ?? this.genres,
-      novelsByGenre: novelsByGenre ?? this.novelsByGenre,
-      metaByGenre: metaByGenre ?? this.metaByGenre,
       isLoadMore: isLoadMore ?? this.isLoadMore,
+      novels: novels ?? this.novels,
+      meta: meta ?? this.meta,
+      audio: audio ?? this.audio,
     );
   }
 
@@ -49,9 +50,8 @@ class NovelState extends Equatable {
         error,
         selectedTab,
         pageCommand,
-        genres,
-        novelsByGenre,
-        metaByGenre,
         isLoadMore,
+        novels,
+        audio,
       ];
 }

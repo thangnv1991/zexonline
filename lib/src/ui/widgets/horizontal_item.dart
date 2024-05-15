@@ -65,7 +65,6 @@ class HorizontalItem extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: AppStyles.fontSize10(fontWeight: FontWeight.w500),
                   ),
-                  const Spacer(),
                   2.height,
                   Text(
                     '${AppUtils.formatNumber(story.totalViews ?? 0)} ${LocaleKey.rate.tr}',

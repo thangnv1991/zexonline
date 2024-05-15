@@ -28,24 +28,29 @@ class MoreStoryPage extends StatelessWidget {
           return BasePage(
             isBackground: false,
             child: Scaffold(
-              backgroundColor: AppColors.greyF3,
-              appBar: CustomAppBar(title: type.title, implyLeading: true, actions: [
-                IconButton(
-                  onPressed: () => Get.find<NavigatorManager>().navigateToPage(AppPages.discover),
-                  icon: Container(
-                      padding: 3.paddingAll,
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: AppColors.secondary2,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.search,
-                        color: AppColors.black,
-                      )),
-                )
-              ]),
+              backgroundColor: AppColors.white,
+              appBar: CustomAppBar(
+                  backgroundColor: AppColors.white,
+                  title: type.title,
+                  implyLeading: true,
+                  actions: [
+                    IconButton(
+                      onPressed: () =>
+                          Get.find<NavigatorManager>().navigateToPage(AppPages.discover),
+                      icon: Container(
+                          padding: 3.paddingAll,
+                          width: 32,
+                          height: 32,
+                          decoration: const BoxDecoration(
+                            color: AppColors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.search,
+                            color: AppColors.primary,
+                          )),
+                    )
+                  ]),
               body: Padding(
                 padding: 16.paddingAll,
                 child: CustomListView(

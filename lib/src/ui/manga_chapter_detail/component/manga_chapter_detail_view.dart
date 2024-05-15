@@ -11,6 +11,7 @@ import 'package:zexonline/src/ui/manga_chapter_detail/interactor/manga_chapter_d
 import 'package:zexonline/src/ui/widgets/common/custom_circular_progress.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_no_data_widget.dart';
 import 'package:zexonline/src/ui/widgets/common/image_widget.dart';
+import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_constants.dart';
 
 class ChapterDetailView extends StatelessWidget {
@@ -34,7 +35,7 @@ class ChapterDetailView extends StatelessWidget {
                 );
               }
               return Scaffold(
-                // backgroundColor: AppColors.secondary1,
+                backgroundColor: AppColors.white,
                 body: NestedScrollView(
                   floatHeaderSlivers: true,
                   headerSliverBuilder: (BuildContext context, bool innerBoxIsScrolled) {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:zexonline/src/ui/base/interactor/page_command.dart';
+import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/ui/discover/interactor/discover_bloc.dart';
 import 'package:zexonline/src/ui/widgets/base/app_body.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_gridview.dart';
-import 'package:zexonline/src/ui/widgets/manga_item/manga_horizontal_item.dart';
+import 'package:zexonline/src/ui/widgets/manga_item/manga_grid_short_item.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
 
 class DiscoverMangaGridViewSection extends StatelessWidget {
@@ -24,22 +24,18 @@ class DiscoverMangaGridViewSection extends StatelessWidget {
           pageState: state.status,
           success: CustomGridView(
             isLoadMore: state.isLoadMore,
-            spaceHorizontal: 6,
-            crossAxisCount: 4,
+            loadMore: () =>
+                Get.find<DiscoverBloc>().add(OnSearchStories(page: state.meta?.page ?? 1)),
+            refresh: () => Get.find<DiscoverBloc>().add(const OnSearchStories(page: 1)),
             itemCount: itemCount,
-            itemRatio: 0.75,
-            itemBuilder: (context, index, _) {
+            itemRatio: 1.5,
+            itemBuilder: (context, index, heightItem) {
               final story = state.stories[index];
-              return MangaHorizontalItem(
+              return MangaGridShortItem(
                 story: story,
-                isTop: false,
-                onNavigateToDetail: () => Get.find<DiscoverBloc>().add(
-                  OnNavigatePage(
-                    PageCommandNavigatorPage(
-                      page: AppPages.storyDetail(story.id ?? ''),
-                    ),
-                  ),
-                ),
+                height: heightItem,
+                onNavigateToDetail: () => Get.find<NavigatorManager>()
+                    .navigateToPage(AppPages.storyDetail(story.id ?? '')),
               );
             },
           ),

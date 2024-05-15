@@ -32,7 +32,7 @@ class NovelChapterDetailBottomAction extends StatelessWidget {
                     margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 48),
                     decoration: BoxDecoration(
                       borderRadius: 55.borderRadiusAll,
-                      color: AppColors.secondary2,
+                      color: AppColors.primary,
                     ),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -52,7 +52,7 @@ class NovelChapterDetailBottomAction extends StatelessWidget {
                               AppAssets.ic_undo_svg,
                               colorFilter: chapterPrevious != null
                                   ? null
-                                  : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                                  : const ColorFilter.mode(AppColors.textDisable, BlendMode.srcIn),
                             )),
                         IconButton(
                             onPressed: () {

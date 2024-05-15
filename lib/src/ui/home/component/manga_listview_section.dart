@@ -6,7 +6,6 @@ import 'package:zexonline/src/core/model/story_model.dart';
 import 'package:zexonline/src/enums/enum_sort_type.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
-import 'package:zexonline/src/ui/base/interactor/page_command.dart';
 import 'package:zexonline/src/ui/home/component/home_section_common_widget.dart';
 import 'package:zexonline/src/ui/home/interactor/home_bloc.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_listview.dart';
@@ -36,13 +35,8 @@ class MangaListViewSection extends StatelessWidget {
 
                   return MangaHorizontalItem(
                     story: item,
-                    onNavigateToDetail: () => Get.find<HomeBloc>().add(
-                      OnNavigatePage(
-                        PageCommandNavigatorPage(
-                          page: AppPages.storyDetail(item.id ?? ''),
-                        ),
-                      ),
-                    ),
+                    onNavigateToDetail: () => Get.find<NavigatorManager>()
+                        .navigateToPage(AppPages.storyDetail(item.id ?? '')),
                   );
                 },
                 separatorBuilder: (context, index) => 6.width,

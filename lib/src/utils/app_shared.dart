@@ -87,7 +87,7 @@ class AppShared {
 
   Future<void> setNovelBackground(int color) => _box.put(_keyNovelBackground, color);
 
-  Color getNovelBackground() => Color(_box.get(_keyNovelBackground) ?? 0xFFFFFF);
+  Color getNovelBackground() => Color(_box.get(_keyNovelBackground) ?? 0xFFFFFFFF);
 
   Future<void> setNovelTextFamily(String? fontFamily) => _box.put(_keyNovelFontFamily, fontFamily);
 

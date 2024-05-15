@@ -22,7 +22,7 @@ class MangaChapterDetailBottomAction extends StatelessWidget {
           return AnimatedContainer(
             height: showBottomNavigate ? 72 : 0,
             width: showBottomNavigate ? Get.width : 0,
-            color: showBottomNavigate ? AppColors.secondary1 : null,
+            color: showBottomNavigate ? AppColors.primary : null,
             duration: const Duration(milliseconds: 50),
             child: showBottomNavigate
                 ? Row(
@@ -40,7 +40,7 @@ class MangaChapterDetailBottomAction extends StatelessWidget {
                             AppAssets.ic_undo_svg,
                             colorFilter: chapterPrevious != null
                                 ? null
-                                : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                                : const ColorFilter.mode(AppColors.textDisable, BlendMode.srcIn),
                           )),
                       IconButton(
                           onPressed: () {},
@@ -59,7 +59,7 @@ class MangaChapterDetailBottomAction extends StatelessWidget {
                             AppAssets.ic_redo_svg,
                             colorFilter: chapterNext != null
                                 ? null
-                                : const ColorFilter.mode(Colors.grey, BlendMode.srcIn),
+                                : const ColorFilter.mode(AppColors.textDisable, BlendMode.srcIn),
                           )),
                     ],
                   )

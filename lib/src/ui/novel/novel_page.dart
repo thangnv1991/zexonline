@@ -3,10 +3,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
+import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/base/base_page.dart';
 import 'package:zexonline/src/ui/base/interactor/page_command.dart';
+import 'package:zexonline/src/ui/discover/component/top_navigate_item.dart';
 import 'package:zexonline/src/ui/novel/component/novel_gridview.dart';
-import 'package:zexonline/src/ui/novel/component/novel_top_navigate_item.dart';
 import 'package:zexonline/src/ui/novel/interactor/novel_bloc.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 
@@ -16,7 +17,7 @@ class NovelPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => Get.find<NovelBloc>(),
+      create: (context) => Get.find<NovelBloc>()..add(const GetNovels()),
       child: BlocConsumer<NovelBloc, NovelState>(
         listener: (context, state) {
           if (state.pageCommand is PageCommandNavigatorPage) {
@@ -29,35 +30,33 @@ class NovelPage extends StatelessWidget {
           return BasePage(
             isBackground: false,
             child: Scaffold(
-              backgroundColor: AppColors.greyF3,
+              backgroundColor: AppColors.white,
               body: Column(
                 children: [
                   26.height,
                   SizedBox(
                     height: 50,
-                    child: BlocBuilder<NovelBloc, NovelState>(
-                        buildWhen: (previous, current) => previous.genres != current.genres,
-                        builder: (context, state) {
-                          return DefaultTabController(
-                            length: 2,
-                            child: TabBar(
-                                isScrollable: false,
-                                tabAlignment: TabAlignment.center,
-                                automaticIndicatorColorAdjustment: false,
-                                indicator: const BoxDecoration(
-                                    gradient: LinearGradient(
-                                        stops: [45 / 50, 48 / 50, 50 / 50],
-                                        begin: Alignment.topCenter,
-                                        end: Alignment.bottomCenter,
-                                        colors: [
-                                          Colors.transparent,
-                                          Color(0xFF604BFF),
-                                          Color(0xFFDA58F7),
-                                        ])),
-                                onTap: (index) => Get.find<NovelBloc>().add(OnChangeType(index)),
-                                tabs: const [NovelTopNavigateItem(1), NovelTopNavigateItem(2)]),
-                          );
-                        }),
+                    child: DefaultTabController(
+                      length: 2,
+                      child: TabBar(
+                          isScrollable: false,
+                          tabAlignment: TabAlignment.center,
+                          automaticIndicatorColorAdjustment: false,
+                          indicator: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: 10.borderRadiusAll,
+                          ),
+                          tabs: [
+                            TopNavigateItem(0,
+                                title: LocaleKey.novel.tr,
+                                selectedTab: state.selectedTab,
+                                onClick: () => Get.find<NovelBloc>().add(const OnChangeType(0))),
+                            TopNavigateItem(1,
+                                title: LocaleKey.audio.tr,
+                                selectedTab: state.selectedTab,
+                                onClick: () => Get.find<NovelBloc>().add(const OnChangeType(1))),
+                          ]),
+                    ),
                   ),
                   10.height,
                   const Expanded(

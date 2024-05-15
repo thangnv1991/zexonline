@@ -36,7 +36,13 @@ class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
   FutureOr _getGenres(GetGenres event, emit) async {
     final List<Genre> genres = Get.find<MainBloc>().state.genres;
 
+    final genres18 =
+        genres.firstWhereOrNull((element) => element.id == "9b83e96d-83d3-4272-8f6d-b4fc4bf5a6c2");
+    genres.remove(genres18);
+
     emit(state.copyWith(genres: genres));
+
+    add(const OnSearchStories());
   }
 
   FutureOr<void> _init(Init event, Emitter<DiscoverState> emit) {
@@ -45,44 +51,28 @@ class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
 
   FutureOr<void> _onSearchStories(OnSearchStories event, Emitter<DiscoverState> emit) async {
     try {
-      if (state.isLoadMore) return;
+      if (event.isLoadMore) {
+        if (state.isLoadMore) return;
+        emit(state.copyWith(isLoadMore: true));
+      }
+
+      final StoriesResponse result = await _storyRepository.getStories(StoryRequest(
+        genres: state.genreSelected?.id,
+        type: state.selectedTab == 0
+            ? "comic"
+            : state.selectedTab == 1
+                ? "story"
+                : "audio",
+        sort: null,
+        search: null,
+        page: event.page,
+      ));
 
       final bool refreshData = event.page == 1;
 
       emit(state.copyWith(
-        isLoadMore: true,
-        selectedSortType: refreshData ? event.sortType : state.selectedSortType,
-        selectedGenre: refreshData ? event.genre : state.selectedGenre,
-        stories: refreshData ? [] : state.stories,
-        status: refreshData ? PageState.loading : state.status,
-      ));
-      await Future.delayed(const Duration(milliseconds: 500));
-
-      int? page;
-
-      if (event.page == 1) {
-        page = event.page;
-      } else {
-        if (state.meta != null) {
-          if (state.meta!.nextPage == null) {
-            emit(state.copyWith(isLoadMore: false));
-            return;
-          } else {
-            page = state.meta!.nextPage!;
-          }
-        }
-      }
-
-      final StoriesResponse result = await _storyRepository.getStories(StoryRequest(
-        genres: state.selectedGenre?.id,
-        sort: state.selectedSortType.api,
-        search: state.keySearch,
-        page: page ?? 1,
-      ));
-
-      emit(state.copyWith(
         meta: result.meta,
-        stories: [...state.stories, ...result.data],
+        stories: refreshData ? [...result.data] : [...state.stories, ...result.data],
         status: PageState.success,
         isLoadMore: false,
       ));
@@ -97,9 +87,13 @@ class DiscoverBloc extends Bloc<DiscoverEvent, DiscoverState> {
 
   FutureOr<void> _onChangeTab(OnChangeTab event, Emitter<DiscoverState> emit) {
     emit(state.copyWith(selectedTab: event.type));
+
+    add(const OnSearchStories());
   }
 
   FutureOr<void> _genresSelectedEvent(GenresSelectedEvent event, Emitter<DiscoverState> emit) {
     emit(state.copyWith(genreSelected: event.selectedGenre));
+
+    add(const OnSearchStories());
   }
 }

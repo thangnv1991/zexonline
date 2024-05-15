@@ -26,7 +26,7 @@ class StoryDetailBottomWidget extends StatelessWidget {
     return BlocBuilder<StoryBloc, StoryDetailState>(builder: (context, state) {
       bool isFavorite = state.story?.isFavorite ?? false;
       return Padding(
-        padding: 16.paddingVertical,
+        padding: 16.paddingAll,
         child: Row(
           children: [
             Expanded(
@@ -93,7 +93,8 @@ class StoryDetailBottomWidget extends StatelessWidget {
                 height: 48,
                 padding: 0.paddingAll,
                 borderRadius: 8.borderRadiusAll,
-                backgroundColor: AppColors.black,
+                backgroundColor: AppColors.white,
+                border: Border.all(color: AppColors.primary),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
