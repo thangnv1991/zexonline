@@ -30,6 +30,7 @@ class MangaListViewSection extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 padding: 6.paddingHorizontal,
                 itemCount: state.topManga.length,
+                isLoading: state.loadingTopManga,
                 itemBuilder: (context, index) {
                   final StoryModel item = state.topManga[index];
 

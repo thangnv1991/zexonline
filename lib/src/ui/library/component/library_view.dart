@@ -7,7 +7,6 @@ import 'package:zexonline/src/ui/base/base_page.dart';
 import 'package:zexonline/src/ui/library/component/library_manga_grid_view.dart';
 import 'package:zexonline/src/ui/library/component/library_top_navigationbar.dart';
 import 'package:zexonline/src/ui/library/interactor/library_bloc.dart';
-import 'package:zexonline/src/ui/widgets/base/app_body.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_appbar.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 
@@ -34,9 +33,7 @@ class LibraryView extends StatelessWidget {
                   const SizedBox(height: kToolbarHeight + 24),
                   const LibraryTopNavigationBar(),
                   20.height,
-                  Expanded(
-                    child: AppBody(pageState: state.status, success: const LibraryMangaGridView()),
-                  ),
+                  const Expanded(child: LibraryMangaGridView()),
                 ],
               ),
             )),

@@ -24,8 +24,12 @@ class MoreStoryBloc extends Bloc<MoreStoryEvent, MoreStoryState> {
 
   FutureOr _getListStories(GetListStories event, emit) async {
     try {
-      if (state.status == PageState.loading) return;
-      emit(state.copyWith(status: PageState.loading));
+      if (event.isLoadMore) {
+        if (state.isLoadMore) return;
+        emit(state.copyWith(isLoadMore: true));
+      } else {
+        emit(state.copyWith(isLoading: true));
+      }
 
       final request = StoryRequest(
         type: 'comic',
@@ -36,10 +40,19 @@ class MoreStoryBloc extends Bloc<MoreStoryEvent, MoreStoryState> {
 
       final StoriesResponse result = await _storyRepository.getStories(request);
 
-      emit(
-          state.copyWith(status: PageState.success, stories: result.data, currentPage: event.page));
+      emit(state.copyWith(
+        status: PageState.success,
+        stories: result.data,
+        currentPage: event.page,
+        isLoadMore: false,
+        isLoading: false,
+      ));
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure));
+      emit(state.copyWith(
+        status: PageState.failure,
+        isLoadMore: false,
+        isLoading: false,
+      ));
     }
   }
 }

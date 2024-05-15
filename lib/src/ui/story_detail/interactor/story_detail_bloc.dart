@@ -62,11 +62,26 @@ class StoryBloc extends Bloc<StoryDetailEvent, StoryDetailState> {
 
   FutureOr _fetchChapterList(FetchChapterList event, emit) async {
     try {
+      if (event.isLoadMore) {
+        if (state.isLoadMore) return;
+        emit(state.copyWith(isLoadMore: true));
+      }
       final ChapterListResponse result = await _storyRepository.getChapterList(event.storyId);
 
-      emit(state.copyWith(status: PageState.success, chapters: result.data ?? []));
+      if (event.isLoadMore) {
+        emit(state.copyWith(
+          status: PageState.success,
+          chapters: state.chapters + (result.data ?? []),
+          isLoadMore: false,
+        ));
+      } else {
+        emit(state.copyWith(status: PageState.success, chapters: result.data ?? []));
+      }
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure));
+      emit(state.copyWith(
+        status: PageState.failure,
+        isLoadMore: false,
+      ));
     }
   }
 }

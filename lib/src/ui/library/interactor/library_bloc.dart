@@ -52,22 +52,25 @@ class LibraryBloc extends Bloc<LibraryEvent, LibraryState> {
       );
 
       if (event.loadMore) {
+        emit(state.copyWith(isLoadMore: true));
+
         final StoriesResponse result = event.tab == LibraryTab.History
             ? await _storyRepository.getHistories(storyRequest)
             : await _storyRepository.getFavorites(storyRequest);
 
-        emit(state.copyWith(stories: state.stories + result.data, status: PageState.success));
+        emit(state.copyWith(
+            stories: state.stories + result.data, status: PageState.success, isLoadMore: false));
       } else {
-        emit(state.copyWith(stories: [], status: PageState.loading));
+        emit(state.copyWith(stories: [], status: PageState.loading, isLoading: true));
 
         final StoriesResponse result = event.tab == LibraryTab.History
             ? await _storyRepository.getHistories(storyRequest)
             : await _storyRepository.getFavorites(storyRequest);
 
-        emit(state.copyWith(stories: result.data, status: PageState.success));
+        emit(state.copyWith(stories: result.data, status: PageState.success, isLoading: false));
       }
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure));
+      emit(state.copyWith(status: PageState.failure, isLoadMore: false, isLoading: false));
     }
   }
 }

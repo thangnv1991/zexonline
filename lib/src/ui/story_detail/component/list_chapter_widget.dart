@@ -29,7 +29,8 @@ class ListChapterWidget extends StatelessWidget {
                         padding: const EdgeInsets.only(top: 16),
                         child: state.gridView
                             ? ChaptersGridView(state.chapters, storyType, state.story!.id!)
-                            : ChaptersListView(state.chapters, storyType, state.story!.id!),
+                            : ChaptersListView(state.chapters, storyType, state.story!.id!,
+                                currentPage: state.currentPage),
                       ),
               );
             })

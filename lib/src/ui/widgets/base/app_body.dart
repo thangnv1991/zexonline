@@ -5,6 +5,7 @@ import 'package:zexonline/src/core/managers/navigator_manager.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/base/interactor/page_states.dart';
+import 'package:zexonline/src/ui/widgets/common/custom_circular_progress.dart';
 import 'package:zexonline/src/ui/widgets/common/ripple_button.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
@@ -37,7 +38,7 @@ class AppBody extends StatelessWidget {
       case PageState.initial:
         return initial ?? const SizedBox.shrink();
       case PageState.loading:
-        return loading ?? const Center(child: CircularProgressIndicator(color: Colors.white));
+        return loading ?? const Center(child: CustomCircularProgress(color: AppColors.primary));
       case PageState.failure:
         return failure ?? const SizedBox.shrink();
       case PageState.success:

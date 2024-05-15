@@ -12,8 +12,15 @@ class MangaGridViewSection extends StatelessWidget {
   final String title;
   final List<StoryModel> stories;
   final VoidCallback? onTapSeeMore;
+  final bool isLoading;
 
-  const MangaGridViewSection(this.title, {super.key, this.stories = const [], this.onTapSeeMore});
+  const MangaGridViewSection(
+    this.title, {
+    super.key,
+    this.stories = const [],
+    this.onTapSeeMore,
+    this.isLoading = false,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +29,7 @@ class MangaGridViewSection extends StatelessWidget {
       onTapSeeMore: onTapSeeMore,
       child: CustomGridView(
         itemCount: stories.length,
+        isLoading: isLoading,
         itemBuilder: (context, index, heightItem) {
           final item = stories[index];
 

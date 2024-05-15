@@ -33,8 +33,9 @@ class GetListStories extends MoreStoryEvent {
   final SortType sort;
   final int page;
   final int pageSize;
+  final bool isLoadMore;
 
-  const GetListStories(this.sort, {this.page = 1, this.pageSize = 10});
+  const GetListStories(this.sort, {this.page = 1, this.pageSize = 10, this.isLoadMore = false});
 
   @override
   List<Object> get props => [];

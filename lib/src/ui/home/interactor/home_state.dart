@@ -7,6 +7,9 @@ class HomeState extends Equatable {
   final List<StoryModel> topManga;
   final List<StoryModel> latestUpdate;
   final List<StoryModel> nowReading;
+  final bool loadingTopManga;
+  final bool loadingLatestUpdate;
+  final bool loadingNowReading;
 
   const HomeState({
     required this.status,
@@ -15,6 +18,9 @@ class HomeState extends Equatable {
     this.topManga = const [],
     this.latestUpdate = const [],
     this.nowReading = const [],
+    this.loadingTopManga = true,
+    this.loadingLatestUpdate = true,
+    this.loadingNowReading = true,
   });
 
   HomeState copyWith({
@@ -24,6 +30,9 @@ class HomeState extends Equatable {
     List<StoryModel>? topManga,
     List<StoryModel>? latestUpdate,
     List<StoryModel>? nowReading,
+    bool? loadingTopManga,
+    bool? loadingLatestUpdate,
+    bool? loadingNowReading,
   }) {
     return HomeState(
       status: status ?? this.status,
@@ -32,6 +41,9 @@ class HomeState extends Equatable {
       topManga: topManga ?? this.topManga,
       latestUpdate: latestUpdate ?? this.latestUpdate,
       nowReading: nowReading ?? this.nowReading,
+      loadingTopManga: loadingTopManga ?? this.loadingTopManga,
+      loadingLatestUpdate: loadingLatestUpdate ?? this.loadingLatestUpdate,
+      loadingNowReading: loadingNowReading ?? this.loadingNowReading,
     );
   }
 
@@ -43,5 +55,8 @@ class HomeState extends Equatable {
         topManga,
         latestUpdate,
         nowReading,
+        loadingTopManga,
+        loadingLatestUpdate,
+        loadingNowReading,
       ];
 }

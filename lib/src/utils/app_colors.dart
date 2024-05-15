@@ -27,8 +27,8 @@ class AppColors {
 
   static LinearGradient gradient() {
     return LinearGradient(begin: Alignment.topLeft, end: Alignment.bottomRight, colors: [
-      const Color(0xFF000000),
-      const Color(0xFF000000).withOpacity(.0),
+      const Color(0xFF007EA6),
+      const Color(0xFF007EA6).withOpacity(.0),
     ]);
   }
 

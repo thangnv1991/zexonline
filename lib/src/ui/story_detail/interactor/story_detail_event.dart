@@ -6,6 +6,7 @@ abstract class StoryDetailEvent extends Equatable {
 
 class Init extends StoryDetailEvent {
   final String storyId;
+
   const Init({required this.storyId});
 
   @override
@@ -41,33 +42,47 @@ class OnShowDescriptionAlbum extends StoryDetailEvent {
 
 class OnNavigatePage extends StoryDetailEvent {
   final PageCommandNavigatorPage page;
+
   const OnNavigatePage(this.page);
+
   @override
   List<Object> get props => [];
 }
 
 class OnClearPageCommand extends StoryDetailEvent {
   const OnClearPageCommand();
+
   @override
   List<Object> get props => [];
 }
 
 class OnFavoriteStory extends StoryDetailEvent {
   final String storyId;
+
   const OnFavoriteStory({required this.storyId});
+
   @override
   List<Object> get props => [storyId];
 }
 
 class OnReadNow extends StoryDetailEvent {
   const OnReadNow();
+
   @override
   List<Object> get props => [];
 }
 
 class FetchChapterList extends StoryDetailEvent {
   final String storyId;
-  const FetchChapterList({required this.storyId});
+  final bool isLoadMore;
+  final int page;
+
+  const FetchChapterList({
+    required this.storyId,
+    this.isLoadMore = false,
+    this.page = 0,
+  });
+
   @override
   List<Object> get props => [storyId];
 }

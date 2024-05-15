@@ -13,7 +13,7 @@ import 'package:zexonline/src/utils/app_utils.dart';
 class HorizontalItem extends StatelessWidget {
   final StoryModel story;
   final Function()? onNavigateToDetail;
-  final double? height;
+  final double height;
 
   const HorizontalItem({
     super.key,
@@ -43,6 +43,7 @@ class HorizontalItem extends StatelessWidget {
                   image: AppConstants.domainImage(story.banner),
                   fit: BoxFit.fitHeight,
                   height: height,
+                  width: height * (2 / 3),
                 ),
               ),
             ),

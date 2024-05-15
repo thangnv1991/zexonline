@@ -32,6 +32,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     try {
       final bool getHistories = event.sort?.api == null;
 
+      if (getHistories) {
+        emit(state.copyWith(loadingNowReading: true));
+      } else if (event.sort == SortType.LatestUpdate) {
+        emit(state.copyWith(loadingLatestUpdate: true));
+      } else if (event.sort == SortType.Views) {
+        emit(state.copyWith(loadingTopManga: true));
+      }
+
       final request = StoryRequest(
         page: event.page,
         limit: event.pageSize,
@@ -52,17 +60,38 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       List<StoryModel>? nowReading = map[''];
 
       if (getHistories) {
-        emit(state.copyWith(nowReading: nowReading ?? state.nowReading, status: PageState.success));
+        emit(state.copyWith(
+          nowReading: nowReading ?? state.nowReading,
+          status: PageState.success,
+          loadingNowReading: false,
+        ));
       } else if (event.sort == SortType.LatestUpdate) {
         emit(state.copyWith(
-            latestUpdate: latestUpdate ?? state.latestUpdate, status: PageState.success));
+          latestUpdate: latestUpdate ?? state.latestUpdate,
+          status: PageState.success,
+          loadingLatestUpdate: false,
+        ));
       } else if (event.sort == SortType.Views) {
-        emit(state.copyWith(topManga: topManga ?? state.topManga, status: PageState.success));
+        emit(state.copyWith(
+          topManga: topManga ?? state.topManga,
+          status: PageState.success,
+          loadingTopManga: false,
+        ));
       } else {
-        emit(state.copyWith(status: PageState.success));
+        emit(state.copyWith(
+          status: PageState.success,
+          loadingNowReading: false,
+          loadingLatestUpdate: false,
+          loadingTopManga: false,
+        ));
       }
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure));
+      emit(state.copyWith(
+        status: PageState.failure,
+        loadingNowReading: false,
+        loadingLatestUpdate: false,
+        loadingTopManga: false,
+      ));
     }
   }
 

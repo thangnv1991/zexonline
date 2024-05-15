@@ -38,6 +38,7 @@ class HomeView extends StatelessWidget {
                     return MangaGridViewSection(
                       LocaleKey.latestUpdateHome.tr,
                       stories: state.latestUpdate,
+                      isLoading: state.loadingLatestUpdate,
                       onTapSeeMore: () => Get.find<NavigatorManager>()
                           .navigateToPage(AppPages.moreStory, args: SortType.LatestUpdate),
                     );
@@ -46,10 +47,11 @@ class HomeView extends StatelessWidget {
               BlocBuilder<HomeBloc, HomeState>(
                   buildWhen: (previous, current) => previous.nowReading != current.nowReading,
                   builder: (context, state) {
-                    return state.nowReading.isNotEmpty
+                    return state.loadingNowReading || state.nowReading.isNotEmpty
                         ? MangaGridViewSection(
                             LocaleKey.nowReading.tr,
                             stories: state.nowReading,
+                            isLoading: state.loadingNowReading,
                           )
                         : Center(
                             child: TextButton(

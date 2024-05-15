@@ -10,17 +10,21 @@ class StoryDetailState extends Equatable {
   final StoryModel? story;
   final String? id;
   final List<ChapterModel> chapters;
+  final bool isLoadMore;
+  final int currentPage;
 
   const StoryDetailState({
     required this.status,
     required this.error,
     required this.selectedType,
-    this.gridView = true,
+    this.gridView = false,
     this.showDescription = true,
     this.pageCommand,
     this.story,
     this.id,
     this.chapters = const [],
+    this.isLoadMore = false,
+    this.currentPage = 0,
   });
 
   StoryDetailState copyWith({
@@ -33,6 +37,8 @@ class StoryDetailState extends Equatable {
     StoryModel? story,
     String? id,
     List<ChapterModel>? chapters,
+    bool? isLoadMore,
+    int? currentPage,
   }) {
     return StoryDetailState(
       status: status ?? this.status,
@@ -44,6 +50,8 @@ class StoryDetailState extends Equatable {
       story: story ?? this.story,
       id: id ?? this.id,
       chapters: chapters ?? this.chapters,
+      isLoadMore: isLoadMore ?? this.isLoadMore,
+      currentPage: currentPage ?? this.currentPage,
     );
   }
 
@@ -58,5 +66,6 @@ class StoryDetailState extends Equatable {
         story,
         id,
         chapters,
+        isLoadMore
       ];
 }

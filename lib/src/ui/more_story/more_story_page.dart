@@ -55,6 +55,8 @@ class MoreStoryPage extends StatelessWidget {
                 padding: 16.paddingAll,
                 child: CustomListView(
                     itemCount: state.stories.length,
+                    isLoadMore: state.isLoadMore,
+                    isLoading: state.isLoading,
                     itemBuilder: (BuildContext context, int index) {
                       return HorizontalItem(
                         story: state.stories[index],
@@ -71,6 +73,7 @@ class MoreStoryPage extends StatelessWidget {
                       Get.find<MoreStoryBloc>().add(GetListStories(
                         type,
                         page: state.currentPage + 1,
+                        isLoadMore: true,
                       ));
                     },
                     refresh: () async {
