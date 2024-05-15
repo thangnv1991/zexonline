@@ -25,50 +25,52 @@ class HomeView extends StatelessWidget {
       isBackground: false,
       child: Scaffold(
         backgroundColor: AppColors.white,
-        body: ListView(
-          padding: 0.paddingAll,
-          children: [
-            24.height,
-            const MangaListViewSection(),
-            16.height,
-            BlocBuilder<HomeBloc, HomeState>(
-                buildWhen: (previous, current) => previous.latestUpdate != current.latestUpdate,
-                builder: (context, state) {
-                  return MangaGridViewSection(
-                    LocaleKey.latestUpdateHome.tr,
-                    stories: state.latestUpdate,
-                    onTapSeeMore: () => Get.find<NavigatorManager>()
-                        .navigateToPage(AppPages.moreStory, args: SortType.LatestUpdate),
-                  );
-                }),
-            16.height,
-            BlocBuilder<HomeBloc, HomeState>(
-                buildWhen: (previous, current) => previous.nowReading != current.nowReading,
-                builder: (context, state) {
-                  return state.nowReading.isNotEmpty
-                      ? MangaGridViewSection(
-                          LocaleKey.nowReading.tr,
-                          stories: state.nowReading,
-                        )
-                      : Center(
-                          child: TextButton(
-                            onPressed: () {
-                              Get.find<MainBloc>()
-                                  .add(const OnChangeTabEvent(BottomNavigationPage.Manga));
-                            },
-                            child: Text(
-                              LocaleKey.noDataReadNow.tr,
-                              style: GoogleFonts.cabin(
-                                fontSize: 13,
-                                color: AppColors.black,
-                                fontWeight: FontWeight.w600,
+        body: SafeArea(
+          child: ListView(
+            padding: 0.paddingAll,
+            children: [
+              24.height,
+              const MangaListViewSection(),
+              16.height,
+              BlocBuilder<HomeBloc, HomeState>(
+                  buildWhen: (previous, current) => previous.latestUpdate != current.latestUpdate,
+                  builder: (context, state) {
+                    return MangaGridViewSection(
+                      LocaleKey.latestUpdateHome.tr,
+                      stories: state.latestUpdate,
+                      onTapSeeMore: () => Get.find<NavigatorManager>()
+                          .navigateToPage(AppPages.moreStory, args: SortType.LatestUpdate),
+                    );
+                  }),
+              16.height,
+              BlocBuilder<HomeBloc, HomeState>(
+                  buildWhen: (previous, current) => previous.nowReading != current.nowReading,
+                  builder: (context, state) {
+                    return state.nowReading.isNotEmpty
+                        ? MangaGridViewSection(
+                            LocaleKey.nowReading.tr,
+                            stories: state.nowReading,
+                          )
+                        : Center(
+                            child: TextButton(
+                              onPressed: () {
+                                Get.find<MainBloc>()
+                                    .add(const OnChangeTabEvent(BottomNavigationPage.Manga));
+                              },
+                              child: Text(
+                                LocaleKey.noDataReadNow.tr,
+                                style: GoogleFonts.cabin(
+                                  fontSize: 13,
+                                  color: AppColors.black,
+                                  fontWeight: FontWeight.w600,
+                                ),
                               ),
                             ),
-                          ),
-                        );
-                }),
-            bottomHeight.toInt().height,
-          ],
+                          );
+                  }),
+              bottomHeight.toInt().height,
+            ],
+          ),
         ),
       ),
     );

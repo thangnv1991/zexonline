@@ -7,6 +7,7 @@ class NovelState extends Equatable {
   final PageCommand? pageCommand;
   final Meta? meta;
   final bool isLoadMore;
+  final bool isLoading;
   final List<StoryModel> novels;
   final List<StoryModel> audio;
 
@@ -16,6 +17,7 @@ class NovelState extends Equatable {
     required this.selectedTab,
     this.pageCommand,
     this.isLoadMore = false,
+    this.isLoading = true,
     this.meta,
     this.novels = const [],
     this.audio = const [],
@@ -30,6 +32,7 @@ class NovelState extends Equatable {
     List<StoryModel>? novels,
     List<StoryModel>? audio,
     bool? isLoadMore,
+    bool? isLoading,
     Meta? meta,
   }) {
     return NovelState(
@@ -41,6 +44,7 @@ class NovelState extends Equatable {
       novels: novels ?? this.novels,
       meta: meta ?? this.meta,
       audio: audio ?? this.audio,
+      isLoading: isLoading ?? this.isLoading,
     );
   }
 
@@ -53,5 +57,6 @@ class NovelState extends Equatable {
         isLoadMore,
         novels,
         audio,
+        isLoading,
       ];
 }

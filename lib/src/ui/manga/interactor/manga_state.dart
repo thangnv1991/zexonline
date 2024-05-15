@@ -8,6 +8,10 @@ class MangaState extends Equatable {
   final List<StoryModel> storiesLatestUpdate;
   final List<StoryModel> storiesPopular;
   final List<StoryModel> storiesRate;
+  final bool loadingNewChapter;
+  final bool loadingLatestUpdate;
+  final bool loadingPopular;
+  final bool loadingRate;
 
   const MangaState({
     required this.status,
@@ -17,6 +21,10 @@ class MangaState extends Equatable {
     this.storiesLatestUpdate = const [],
     this.storiesPopular = const [],
     this.storiesRate = const [],
+    this.loadingNewChapter = true,
+    this.loadingLatestUpdate = true,
+    this.loadingPopular = true,
+    this.loadingRate = true,
   });
 
   MangaState copyWith({
@@ -27,6 +35,10 @@ class MangaState extends Equatable {
     List<StoryModel>? storiesLatestUpdate,
     List<StoryModel>? storiesPopular,
     List<StoryModel>? storiesRate,
+    bool? loadingNewChapter,
+    bool? loadingLatestUpdate,
+    bool? loadingPopular,
+    bool? loadingRate,
   }) {
     return MangaState(
       status: status ?? this.status,
@@ -36,6 +48,10 @@ class MangaState extends Equatable {
       storiesLatestUpdate: storiesLatestUpdate ?? this.storiesLatestUpdate,
       storiesPopular: storiesPopular ?? this.storiesPopular,
       storiesRate: storiesRate ?? this.storiesRate,
+      loadingNewChapter: loadingNewChapter ?? this.loadingNewChapter,
+      loadingLatestUpdate: loadingLatestUpdate ?? this.loadingLatestUpdate,
+      loadingPopular: loadingPopular ?? this.loadingPopular,
+      loadingRate: loadingRate ?? this.loadingRate,
     );
   }
 
@@ -48,5 +64,9 @@ class MangaState extends Equatable {
         storiesLatestUpdate,
         storiesPopular,
         storiesRate,
+        loadingNewChapter,
+        loadingLatestUpdate,
+        loadingPopular,
+        loadingRate
       ];
 }

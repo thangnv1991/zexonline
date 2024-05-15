@@ -26,11 +26,9 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
   final StoryRepository _storyRepository = StoryRepository();
 
   FutureOr _onChangeType(OnChangeType event, emit) async {
-    emit(state.copyWith(
-      selectedTab: event.type,
-      status: PageState.loading,
-      isLoadMore: false,
-    ));
+    if (event.type == state.selectedTab) return;
+
+    emit(state.copyWith(selectedTab: event.type, novels: []));
 
     if (event.type == 0) {
       add(const GetNovels());
@@ -44,6 +42,8 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
       if (event.isLoadMore) {
         if (state.isLoadMore) return;
         emit(state.copyWith(isLoadMore: true));
+      } else {
+        emit(state.copyWith(isLoading: true));
       }
 
       final StoriesResponse result = await _storyRepository
@@ -54,16 +54,21 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
         status: PageState.success,
         meta: result.meta,
         isLoadMore: false,
+        isLoading: false,
       ));
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure, isLoadMore: false));
+      emit(state.copyWith(status: PageState.failure, isLoadMore: false, isLoading: false));
     }
   }
 
   FutureOr _getAudios(GetAudios event, Emitter<NovelState> emit) async {
     try {
-      if (state.isLoadMore) return;
-      emit(state.copyWith(isLoadMore: true));
+      if (event.isLoadMore) {
+        if (state.isLoadMore) return;
+        emit(state.copyWith(isLoadMore: true));
+      } else {
+        emit(state.copyWith(isLoading: true));
+      }
 
       final StoriesResponse result = await _storyRepository
           .getStories(StoryRequest(type: 'audio', page: event.page, limit: event.size));
@@ -73,9 +78,10 @@ class NovelBloc extends Bloc<NovelEvent, NovelState> {
         status: PageState.success,
         meta: result.meta,
         isLoadMore: false,
+        isLoading: false,
       ));
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure, isLoadMore: false));
+      emit(state.copyWith(status: PageState.failure, isLoadMore: false, isLoading: false));
     }
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_circular_progress.dart';
+import 'package:zexonline/src/utils/app_colors.dart';
 
 class CustomListView extends StatelessWidget {
   final EdgeInsets? padding;
@@ -11,6 +12,7 @@ class CustomListView extends StatelessWidget {
   final Function()? refresh;
   final VoidCallback? loadMore;
   final bool isLoadMore;
+  final bool isLoading;
 
   const CustomListView({
     super.key,
@@ -22,6 +24,7 @@ class CustomListView extends StatelessWidget {
     this.refresh,
     this.loadMore,
     this.isLoadMore = false,
+    this.isLoading = false,
   });
 
   @override
@@ -37,20 +40,26 @@ class CustomListView extends StatelessWidget {
         },
         child: Stack(
           children: [
-            ListView.separated(
-              padding: padding,
-              scrollDirection: scrollDirection,
-              itemCount: itemCount,
-              separatorBuilder: separatorBuilder,
-              itemBuilder: (BuildContext context, int index) {
-                return itemBuilder(context, index);
-              },
-            ),
-            isLoadMore
-                ? scrollDirection == Axis.vertical
-                    ? Align(alignment: Alignment.bottomCenter, child: _buildLoading())
-                    : Align(alignment: Alignment.centerRight, child: _buildLoading())
-                : const SizedBox()
+            if (isLoading) ...[
+              const Align(
+                  alignment: Alignment.center,
+                  child: CustomCircularProgress(color: AppColors.primary))
+            ] else ...[
+              ListView.separated(
+                padding: padding,
+                scrollDirection: scrollDirection,
+                itemCount: itemCount,
+                separatorBuilder: separatorBuilder,
+                itemBuilder: (BuildContext context, int index) {
+                  return itemBuilder(context, index);
+                },
+              ),
+              isLoadMore
+                  ? scrollDirection == Axis.vertical
+                      ? Align(alignment: Alignment.bottomCenter, child: _buildLoading())
+                      : Align(alignment: Alignment.centerRight, child: _buildLoading())
+                  : const SizedBox()
+            ]
           ],
         ),
       ),
@@ -80,11 +89,7 @@ class CustomListView extends StatelessWidget {
       decoration: BoxDecoration(color: Colors.white70, borderRadius: 8.borderRadiusAll),
       child: const Center(
           child: SizedBox(
-              width: 12,
-              height: 12,
-              child: CustomCircularProgress(
-                color: Color(0xFF4C34AC),
-              ))),
+              width: 12, height: 12, child: CustomCircularProgress(color: AppColors.primary))),
     );
   }
 }

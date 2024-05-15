@@ -16,12 +16,14 @@ class CommonGridView extends StatelessWidget {
   final StoryType storyType;
   final SortType type;
   final List<StoryModel> data;
+  final bool isLoading;
 
   const CommonGridView({
     super.key,
     required this.storyType,
     required this.type,
     required this.data,
+    this.isLoading = false,
   });
 
   @override
@@ -60,6 +62,7 @@ class CommonGridView extends StatelessWidget {
         CustomGridView(
           itemCount: data.length,
           itemRatio: 0.50,
+          isLoading: isLoading,
           itemBuilder: (context, index, heightItem) {
             final item = data[index];
             return MangaGridFullItem(

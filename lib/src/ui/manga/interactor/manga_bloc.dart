@@ -24,6 +24,16 @@ class MangaBloc extends Bloc<MangaEvent, MangaState> {
 
   FutureOr _getListStories(GetListStories event, emit) async {
     try {
+      if (event.sort case SortType.NewChapter) {
+        emit(state.copyWith(loadingNewChapter: true));
+      } else if (event.sort case SortType.LatestUpdate) {
+        emit(state.copyWith(loadingLatestUpdate: true));
+      } else if (event.sort case SortType.Popular) {
+        emit(state.copyWith(loadingPopular: true));
+      } else if (event.sort case SortType.Rate) {
+        emit(state.copyWith(loadingRate: true));
+      }
+
       final request = StoryRequest(
         type: 'comic',
         page: event.page,
@@ -34,18 +44,24 @@ class MangaBloc extends Bloc<MangaEvent, MangaState> {
       final StoriesResponse result = await _storyRepository.getStories(request);
 
       if (event.sort case SortType.NewChapter) {
-        emit(state.copyWith(storiesNewChapter: result.data));
+        emit(state.copyWith(storiesNewChapter: result.data, loadingNewChapter: false));
       } else if (event.sort case SortType.LatestUpdate) {
-        emit(state.copyWith(storiesLatestUpdate: result.data));
+        emit(state.copyWith(storiesLatestUpdate: result.data, loadingLatestUpdate: false));
       } else if (event.sort case SortType.Popular) {
-        emit(state.copyWith(storiesPopular: result.data));
+        emit(state.copyWith(storiesPopular: result.data, loadingPopular: false));
       } else if (event.sort case SortType.Rate) {
-        emit(state.copyWith(storiesRate: result.data));
+        emit(state.copyWith(storiesRate: result.data, loadingRate: false));
       }
 
       emit(state.copyWith(status: PageState.success));
     } catch (ex) {
-      emit(state.copyWith(status: PageState.failure));
+      emit(state.copyWith(
+        status: PageState.failure,
+        loadingNewChapter: false,
+        loadingLatestUpdate: false,
+        loadingPopular: false,
+        loadingRate: false,
+      ));
     }
   }
 }

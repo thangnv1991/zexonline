@@ -4,6 +4,7 @@ import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/main/components/app_bottom_navigationbar.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_circular_progress.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_no_data_widget.dart';
+import 'package:zexonline/src/utils/app_colors.dart';
 
 class CustomGridView extends StatelessWidget {
   final Axis scrollDirection;
@@ -12,6 +13,7 @@ class CustomGridView extends StatelessWidget {
   final Function()? refresh;
   final VoidCallback? loadMore;
   final bool isLoadMore;
+  final bool isLoading;
   final int crossAxisCount;
   final double axisSpacing;
   final double itemRatio;
@@ -25,6 +27,7 @@ class CustomGridView extends StatelessWidget {
     required this.itemBuilder,
     this.refresh,
     this.loadMore,
+    this.isLoading = false,
     this.isLoadMore = false,
     this.crossAxisCount = 2,
     this.axisSpacing = 6,
@@ -40,6 +43,7 @@ class CustomGridView extends StatelessWidget {
             axisSpacing;
     final rows = ((isLoadMore ? itemCount + 1 : itemCount) / crossAxisCount).ceil();
     final double heightWidget = heightItem * rows;
+    print("Loadding ${isLoading}");
     return NotificationListener(
       onNotification: (ScrollNotification scrollNotification) {
         if (scrollNotification.metrics.pixels >= scrollNotification.metrics.maxScrollExtent / 2) {
@@ -53,7 +57,11 @@ class CustomGridView extends StatelessWidget {
         },
         child: Stack(
           children: [
-            if (itemCount == 0 && !isLoadMore)
+            if (isLoading) ...[
+              Padding(
+                  padding: EdgeInsets.only(bottom: bottomHeight),
+                  child: const CustomCircularProgress(color: AppColors.primary)),
+            ] else if (itemCount == 0 && !isLoadMore)
               Padding(
                 padding: EdgeInsets.only(bottom: bottomHeight),
                 child: const CustomNoDataWidget(),
