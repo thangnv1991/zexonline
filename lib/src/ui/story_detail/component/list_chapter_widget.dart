@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/ui/story_detail/component/chapters_view/chapters_grid_view.dart';
 import 'package:zexonline/src/ui/story_detail/component/chapters_view/chapters_list_view.dart';
 import 'package:zexonline/src/ui/story_detail/component/header_list_chapter_widget.dart';
@@ -13,7 +14,11 @@ class ListChapterWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const HeaderListChapterWidget(),
+        Padding(
+          padding: 10.paddingHorizontal,
+          child: const HeaderListChapterWidget(),
+        ),
+        10.height,
         BlocBuilder<StoryBloc, StoryDetailState>(
             buildWhen: (previous, current) =>
                 previous.chapters != current.chapters ||
@@ -25,13 +30,10 @@ class ListChapterWidget extends StatelessWidget {
               return Expanded(
                 child: chapters.isEmpty
                     ? const CustomNoDataWidget()
-                    : Padding(
-                        padding: const EdgeInsets.only(top: 16),
-                        child: state.gridView
-                            ? ChaptersGridView(state.chapters, storyType, state.story!.id!)
-                            : ChaptersListView(state.chapters, storyType, state.story!.id!,
-                                currentPage: state.currentPage),
-                      ),
+                    : state.gridView
+                        ? ChaptersGridView(state.chapters, storyType, state.story!.id!)
+                        : ChaptersListView(state.chapters, storyType, state.story!.id!,
+                            currentPage: state.currentPage),
               );
             })
       ],

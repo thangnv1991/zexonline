@@ -19,9 +19,6 @@ class StoryDetailSwitchAction extends StatelessWidget {
           final showDetailView = state.showDescription;
           return Container(
             padding: const EdgeInsets.symmetric(vertical: 6, horizontal: 8),
-            margin: 24.paddingHorizontal,
-            decoration:
-                BoxDecoration(color: const Color(0xE698B4FF), borderRadius: 50.borderRadiusAll),
             child: Row(
               children: [
                 Expanded(
@@ -30,8 +27,8 @@ class StoryDetailSwitchAction extends StatelessWidget {
                     title: LocaleKey.detail.tr,
                     height: 37,
                     padding: 0.paddingAll,
-                    backgroundColor: showDetailView ? AppColors.secondary1 : AppColors.transparent,
-                    colorTitle: !showDetailView ? AppColors.white : AppColors.textDisable,
+                    backgroundColor: showDetailView ? AppColors.primary : AppColors.secondary1,
+                    colorTitle: showDetailView ? AppColors.white : AppColors.primary,
                   ),
                 ),
                 12.width,
@@ -41,9 +38,9 @@ class StoryDetailSwitchAction extends StatelessWidget {
                     title: LocaleKey.chapters.tr,
                     height: 37,
                     padding: 0.paddingAll,
-                    fontWeight: FontWeight.w600,
-                    backgroundColor: showDetailView ? AppColors.transparent : AppColors.secondary1,
-                    colorTitle: showDetailView ? AppColors.textDisable : AppColors.white,
+                    fontWeight: FontWeight.w700,
+                    backgroundColor: !showDetailView ? AppColors.primary : AppColors.secondary1,
+                    colorTitle: !showDetailView ? AppColors.white : AppColors.primary,
                   ),
                 )
               ],

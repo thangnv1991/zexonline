@@ -33,23 +33,28 @@ class MangaPage extends StatelessWidget {
             isBackground: false,
             child: Scaffold(
               backgroundColor: AppColors.white,
-              appBar: CustomAppBar(title: LocaleKey.manga.tr, implyLeading: false, actions: [
-                IconButton(
-                  onPressed: () => Get.find<NavigatorManager>().navigateToPage(AppPages.discover),
-                  icon: Container(
-                      padding: 3.paddingAll,
-                      width: 32,
-                      height: 32,
-                      decoration: const BoxDecoration(
-                        color: AppColors.white,
-                        shape: BoxShape.circle,
-                      ),
-                      child: const Icon(
-                        Icons.search,
-                        color: AppColors.primary,
-                      )),
-                )
-              ]),
+              appBar: CustomAppBar(
+                  backgroundColor: AppColors.white,
+                  title: LocaleKey.manga.tr,
+                  implyLeading: false,
+                  actions: [
+                    IconButton(
+                      onPressed: () =>
+                          Get.find<NavigatorManager>().navigateToPage(AppPages.discover),
+                      icon: Container(
+                          padding: 3.paddingAll,
+                          width: 32,
+                          height: 32,
+                          decoration: const BoxDecoration(
+                            color: AppColors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: const Icon(
+                            Icons.search,
+                            color: AppColors.primary,
+                          )),
+                    )
+                  ]),
               body: RefreshIndicator(
                 onRefresh: () async {
                   Get.find<MangaBloc>()

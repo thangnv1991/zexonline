@@ -34,16 +34,15 @@ class StoryDetailBottomWidget extends StatelessWidget {
                 onTap: () => bloc.add(OnFavoriteStory(storyId: state.id!)),
                 height: 48,
                 padding: 0.paddingAll,
-                backgroundColor: AppColors.transparent,
-                borderRadius: 8.borderRadiusAll,
-                border: Border.all(color: isFavorite ? Colors.amberAccent : AppColors.black),
+                backgroundColor: AppColors.secondary1,
+                borderRadius: 34.borderRadiusAll,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      AppAssets.ic_save_add_svg,
+                      AppAssets.ic_heart_svg,
                       colorFilter: ColorFilter.mode(
-                        isFavorite ? Colors.amberAccent : AppColors.black,
+                        isFavorite ? AppColors.red : AppColors.inActive,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -51,7 +50,7 @@ class StoryDetailBottomWidget extends StatelessWidget {
                     Text(
                       LocaleKey.favorite.tr.toUpperCase(),
                       style: GoogleFonts.cabin(
-                        color: isFavorite ? Colors.amberAccent : AppColors.black,
+                        color: isFavorite ? AppColors.primary : AppColors.inActive,
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),
@@ -62,7 +61,6 @@ class StoryDetailBottomWidget extends StatelessWidget {
             ),
             12.width,
             Expanded(
-              flex: 2,
               child: RippleButton(
                 onTap: () {
                   // First Chapter
@@ -92,16 +90,15 @@ class StoryDetailBottomWidget extends StatelessWidget {
                 },
                 height: 48,
                 padding: 0.paddingAll,
-                borderRadius: 8.borderRadiusAll,
-                backgroundColor: AppColors.white,
-                border: Border.all(color: AppColors.primary),
+                borderRadius: 34.borderRadiusAll,
+                backgroundColor: AppColors.primary,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SvgPicture.asset(
-                      AppAssets.ic_novel_svg,
+                      AppAssets.ic_book_svg,
                       colorFilter: const ColorFilter.mode(
-                        AppColors.secondary2,
+                        AppColors.white,
                         BlendMode.srcIn,
                       ),
                     ),
@@ -109,7 +106,7 @@ class StoryDetailBottomWidget extends StatelessWidget {
                     Text(
                       LocaleKey.readNow.tr.toUpperCase(),
                       style: GoogleFonts.cabin(
-                        color: AppColors.secondary2,
+                        color: AppColors.white,
                         fontSize: 12,
                         fontWeight: FontWeight.w600,
                       ),

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:zexonline/src/core/model/chapter_model.dart';
@@ -8,9 +7,7 @@ import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/base/interactor/page_command.dart';
 import 'package:zexonline/src/ui/story_detail/interactor/story_detail_bloc.dart';
-import 'package:zexonline/src/ui/widgets/base/toast/app_toast.dart';
 import 'package:zexonline/src/ui/widgets/common/custom_listview.dart';
-import 'package:zexonline/src/utils/app_assets.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 import 'package:zexonline/src/utils/app_pages.dart';
 import 'package:zexonline/src/utils/app_shared.dart';
@@ -54,40 +51,44 @@ class ChaptersListView extends StatelessWidget {
                   PageCommandNavigatorPage(page: AppPages.mangaChapterDetail(chapter.id))));
             }
           },
-          child: Row(
-            children: [
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      '${index + 1}, ${chapter.title}',
-                      style: GoogleFonts.cabin(
-                        fontSize: 14,
-                        color: AppColors.secondary4,
-                        fontWeight: FontWeight.w400,
+          child: Container(
+            color: index % 2 != 0 ? AppColors.secondary1 : null,
+            padding: 10.paddingHorizontal,
+            child: Row(
+              children: [
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        '${index + 1}, ${chapter.title}',
+                        style: GoogleFonts.cabin(
+                          fontSize: 20,
+                          color: AppColors.primary,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                    6.height,
-                    Text(
-                      LocaleKey.latestUpdate
-                          .trParams({'time': AppUtils.formatUtcTime(dateUtc: chapter.updatedAt)}),
-                      style: GoogleFonts.cabin(
-                        fontSize: 10,
-                        color: AppColors.black,
-                        fontWeight: FontWeight.w400,
+                      6.height,
+                      Text(
+                        LocaleKey.latestUpdate
+                            .trParams({'time': AppUtils.formatUtcTime(dateUtc: chapter.updatedAt)}),
+                        style: GoogleFonts.cabin(
+                          fontSize: 16,
+                          color: AppColors.text2,
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              16.width,
-              InkWell(
-                  onTap: () {
-                    showToast(LocaleKey.upgrading.tr);
-                  },
-                  child: SvgPicture.asset(AppAssets.ic_download_svg))
-            ],
+                // 16.width,
+                // InkWell(
+                //     onTap: () {
+                //       showToast(LocaleKey.upgrading.tr);
+                //     },
+                //     child: SvgPicture.asset(AppAssets.ic_download_svg))
+              ],
+            ),
           ),
         );
       },
@@ -98,12 +99,7 @@ class ChaptersListView extends StatelessWidget {
           isLoadMore: true,
         ),
       ),
-      separatorBuilder: (BuildContext context, int index) => Container(
-        height: .8,
-        width: Get.width,
-        color: AppColors.black,
-        margin: 12.paddingVertical,
-      ),
+      separatorBuilder: (BuildContext context, int index) => 5.height,
     );
   }
 }

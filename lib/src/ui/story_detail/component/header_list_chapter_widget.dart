@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:zexonline/src/extensions/int_extensions.dart';
 import 'package:zexonline/src/locale/locale_key.dart';
 import 'package:zexonline/src/ui/story_detail/interactor/story_detail_bloc.dart';
+import 'package:zexonline/src/ui/widgets/line.dart';
 import 'package:zexonline/src/utils/app_colors.dart';
 
 class HeaderListChapterWidget extends StatelessWidget {
@@ -12,74 +12,18 @@ class HeaderListChapterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = Get.find<StoryBloc>();
-    return Row(
+    return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Center(
-          child: Text(
-            LocaleKey.chapters.tr,
-            style: GoogleFonts.cabin(
-              fontSize: 16,
-              color: AppColors.black,
-              fontWeight: FontWeight.w400,
-            ),
+        Text(
+          LocaleKey.chapters.tr,
+          style: GoogleFonts.cabin(
+            fontSize: 20,
+            color: AppColors.black,
+            fontWeight: FontWeight.w400,
           ),
         ),
-        const Spacer(),
-        24.width,
-        // GestureDetector(
-        //   //onTap: () => bloc.add(const OnChangeViewChapterType(false)),
-        //   child: Container(
-        //     padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-        //     decoration: BoxDecoration(
-        //       color: AppColors.secondary3,
-        //       borderRadius: 2.borderRadiusAll,
-        //     ),
-        //     child: Row(
-        //       children: [
-        //         SvgPicture.asset(AppAssets.ic_sort_svg),
-        //         4.width,
-        //         Text(
-        //           LocaleKey.sort.tr.toUpperCase(),
-        //           style: GoogleFonts.cabin(
-        //             fontSize: 12,
-        //             color: AppColors.black,
-        //             fontWeight: FontWeight.w600,
-        //           ),
-        //         ),
-        //       ],
-        //     ),
-        //   ),
-        // ),
-        // 6.width,
-        // BlocBuilder<StoryBloc, StoryDetailState>(builder: (context, state) {
-        //   return GestureDetector(
-        //     onTap: () => bloc.add(OnChangeViewChapterType(state.gridView)),
-        //     child: Container(
-        //       padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 6),
-        //       decoration: BoxDecoration(
-        //         color: AppColors.secondary3,
-        //         borderRadius: 2.borderRadiusAll,
-        //       ),
-        //       child: Row(
-        //         children: [
-        //           SvgPicture.asset(AppAssets.ic_view_svg),
-        //           4.width,
-        //           Text(
-        //             state.gridView
-        //                 ? LocaleKey.view.tr.toUpperCase()
-        //                 : LocaleKey.list.tr.toUpperCase(),
-        //             style: GoogleFonts.cabin(
-        //               fontSize: 12,
-        //               color: AppColors.black,
-        //               fontWeight: FontWeight.w600,
-        //             ),
-        //           ),
-        //         ],
-        //       ),
-        //     ),
-        //   );
-        // })
+        const Line(),
       ],
     );
   }
